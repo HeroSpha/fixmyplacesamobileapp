@@ -26,22 +26,23 @@
             <StackLayout  HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" Margin="10" >
                 <StackLayout.HorizontalOptions>
                     <OnIdiom x:TypeArguments="LayoutOptions">
-                        <!--<OnIdiom.Phone>FillAndExpand</OnIdiom.Phone>
-                        <OnIdiom.Tablet>Center</OnIdiom.Tablet>-->
+                        <OnIdiom.Phone>FillAndExpand</OnIdiom.Phone>
+                        <OnIdiom.Tablet>Center</OnIdiom.Tablet>
+                        <OnIdiom.Desktop>Center</OnIdiom.Desktop>
                     </OnIdiom>
                 </StackLayout.HorizontalOptions>
 
                
                 <StackLayout Orientation="Horizontal">
-                    <icon:IconImage Icon="fa-user" IconColor="White" IconSize="20" HorizontalOptions="Start" />
+                    <icon:IconImage Icon="md-account-circle" IconColor="White" IconSize="20" HorizontalOptions="Start" />
                     <Entry  Text="{Binding Username}"  Placeholder="joedoe@example.com" PlaceholderColor="LightGray" TextColor="White" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <icon:IconImage Icon="ion-locked" IconColor="White" IconSize="20" HorizontalOptions="Start" />
+                    <icon:IconImage Icon="md-vpn-key" IconColor="White" IconSize="20" HorizontalOptions="Start" />
                     <Entry  Text="{Binding Password}" PlaceholderColor="LightGray" IsPassword="True" Placeholder="password" HorizontalOptions="FillAndExpand" TextColor="White"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <icon:IconImage Icon="ion-locked" IconColor="White" IconSize="20" />
+                    <icon:IconImage Icon="md-vpn-key" IconColor="White" IconSize="20" />
                     <Entry Text="{Binding ConfirmPassword}" IsPassword="True" PlaceholderColor="LightGray"  Placeholder="confirm password" HorizontalOptions="FillAndExpand"  TextColor="White"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" >

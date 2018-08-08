@@ -7,6 +7,9 @@ using ImageCircle.Forms.Plugin.iOS;
 using Acr.UserDialogs;
 using ZXing.Mobile;
 using Com.OneSignal;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace Fixmyplacemobileapp.iOS
 {
@@ -27,6 +30,7 @@ namespace Fixmyplacemobileapp.iOS
             ImageCircleRenderer.Init();
             OneSignal.Current.StartInit("88b69634-8970-4f5d-92d4-69f696d697fd")
                   .EndInit();
+           
             FormsPlugin.Iconize.iOS.IconControls.Init();
             LoadApplication(new App(new iOSInitializer()));
 

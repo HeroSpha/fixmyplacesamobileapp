@@ -40,9 +40,8 @@ namespace Fixmyplacemobileapp
             InitializeComponent();
             try
             {
-     
-                AppCenter.Start("android=36d55754-050c-4a5a-b74f-39050fd149dd;" + "uwp={Your UWP App secret here};" +
-                       "ios=97c8e20a-25dd-468b-bcc1-264b4a2fbaba;",
+                AppCenter.Start("android=705828a1-9926-4cce-badc-5a6dfaa3dc49;" + "uwp={Your UWP App secret here};" +
+                       "ios=ba09390c-6962-47c8-a55b-b44acabf38ab;",
                        typeof(Analytics), typeof(Crashes));
                 OneSignal.Current.StartInit("8c740c9e-3185-4e06-bcb6-709f13a9e1c6")
                .EndInit();
