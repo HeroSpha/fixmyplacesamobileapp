@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+              xmlns:local="clr-namespace:SharedCode.Converters;assembly=Shared"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Client.Views.ClientIssuesPage" Title="Issues">
+    
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Issues}" CachingStrategy="RecycleElement"  SeparatorColor="{StaticResource Primary}" SelectedItem="{Binding SelectedIssue, Mode=TwoWay}" HasUnevenRows="True" Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="10">
+
+                            <icon:IconLabel VerticalOptions="Center" FontSize="30" TextColor="{Binding Status, Converter={local:ColorStatusConverter}}" Margin="3" HorizontalOptions="Start" Text="{Binding Status, Converter={local:IconStatusConverter}}" />
+                            <StackLayout>
+                                <Label Text="{Binding Title}" VerticalOptions="Start" FontFamily="{StaticResource NormalFont}" FontSize="Small"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <icon:IconLabel Text="ion-android-calendar" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" FontSize="Micro"/>
+                                    <Label Text="{Binding PostedOn, StringFormat='Posted On : {0:MM/dd/yyyy}'}" FontFamily="{StaticResource NormalFont}"   FontSize="Micro"  TextColor="{StaticResource Primary}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

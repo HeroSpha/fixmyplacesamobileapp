@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="TechTechnician.Views.TechAddCustomer" Title="Register">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem Text="link" IconColor="White" Icon="ion-link" Command="{Binding RegisterCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="ion-android-person" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Medium" />
+                <Entry Text="{Binding Firstname, Mode=TwoWay}" HorizontalOptions="FillAndExpand" Placeholder="Technician name" PlaceholderColor="{StaticResource Primary}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="ion-android-mail" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Medium" />
+                <Entry Text="{Binding Email, Mode=TwoWay}" HorizontalOptions="FillAndExpand" Placeholder="Email address" PlaceholderColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="ion-android-phone-portrait" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Medium" />
+                <Entry Text="{Binding Phone, Mode=TwoWay}" HorizontalOptions="FillAndExpand" Placeholder="Phone number" PlaceholderColor="{StaticResource Primary}"/>
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

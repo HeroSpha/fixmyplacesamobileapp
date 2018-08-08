@@ -1,0 +1,82 @@
+﻿1>------ Build started: Project: Fixmyplacemobileapp.iOS, Configuration: Debug iPhoneSimulator ------
+1>  Connecting to Mac server 192.168.177.128...
+1>C:\Users\DigiHelp IT\.nuget\packages\microsoft.bcl.build\1.0.21\build\Microsoft.Bcl.Build.targets(243,5): warning : All projects referencing Fixmyplacemobileapp.csproj must install nuget package Microsoft.Bcl.Build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317569.
+1>C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(2106,5): warning MSB3245: Could not resolve this reference. Could not locate the assembly "nunit.framework". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors.
+1>  No way to resolve conflict between "System.Runtime, Version=4.0.20.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Runtime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Runtime, Version=4.0.20.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.Collections, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Collections, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.IO, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.IO, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.IO, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.Threading.Tasks, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Threading.Tasks, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Threading.Tasks, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.Runtime.Extensions, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Runtime.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Runtime.Extensions, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.Reflection, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Reflection, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Reflection, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.Diagnostics.Debug, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Diagnostics.Debug, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Diagnostics.Debug, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.Threading, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Threading, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Threading, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.Text.Encoding, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Text.Encoding, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Text.Encoding, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.Net.Primitives, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Net.Primitives, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Net.Primitives, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  No way to resolve conflict between "System.Globalization, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" and "System.Globalization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a". Choosing "System.Globalization, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" arbitrarily.
+1>  Consider app.config remapping of assembly "System.Runtime, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.dll] to Version "4.0.20.0" [] to solve conflict and get rid of warning.
+1>  Consider app.config remapping of assembly "System.IO, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.IO\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.IO.dll] to Version "4.0.10.0" [] to solve conflict and get rid of warning.
+1>  Consider app.config remapping of assembly "System.Text.Encoding, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Text.Encoding\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Text.Encoding.dll] to Version "4.0.10.0" [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Text.Encoding.dll] to solve conflict and get rid of warning.
+1>  Consider app.config remapping of assembly "System.Net.Primitives, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Net.Primitives\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Net.Primitives.dll] to Version "4.0.10.0" [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Net.Primitives.dll] to solve conflict and get rid of warning.
+1>  Consider app.config remapping of assembly "System.Collections, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Collections\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Collections.dll] to Version "4.0.10.0" [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Collections.dll] to solve conflict and get rid of warning.
+1>  Consider app.config remapping of assembly "System.Runtime.Extensions, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Extensions\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.Extensions.dll] to Version "4.0.10.0" [] to solve conflict and get rid of warning.
+1>  Consider app.config remapping of assembly "System.Diagnostics.Debug, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Diagnostics.Debug\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Diagnostics.Debug.dll] to Version "4.0.10.0" [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Diagnostics.Debug.dll] to solve conflict and get rid of warning.
+1>  Consider app.config remapping of assembly "System.Threading, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Threading\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Threading.dll] to Version "4.0.10.0" [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Threading.dll] to solve conflict and get rid of warning.
+1>  Consider app.config remapping of assembly "System.Reflection, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Reflection\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Reflection.dll] to Version "4.0.10.0" [] to solve conflict and get rid of warning.
+1>C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(2106,5): warning MSB3277: Found conflicts between different versions of "Microsoft.CSharp" that could not be resolved.  These reference conflicts are listed in the build log when log verbosity is set to detailed.
+1>  Consider app.config remapping of assembly "System.Globalization, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Globalization\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Globalization.dll] to Version "4.0.10.0" [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Globalization.dll] to solve conflict and get rid of warning.
+1>C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(2106,5): warning MSB3277: Found conflicts between different versions of "System.Net.Http" that could not be resolved.  These reference conflicts are listed in the build log when log verbosity is set to detailed.
+1>  Consider app.config remapping of assembly "System.Threading.Tasks, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" from Version "4.0.0.0" [C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Threading.Tasks\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Threading.Tasks.dll] to Version "4.0.10.0" [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Threading.Tasks.dll] to solve conflict and get rid of warning.
+1>C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(2106,5): warning MSB3276: Found conflicts between different versions of the same dependent assembly. Please set the "AutoGenerateBindingRedirects" property to true in the project file. For more information, see http://go.microsoft.com/fwlink/?LinkId=294190.
+1>  Fixmyplacemobileapp.iOS -> G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.iOS\bin\iPhoneSimulator\Debug\Fixmyplacemobileapp.iOS.exe
+1>  Detected signing identity:
+1>    Bundle Id: com.kagisohouse.co.za
+1>    App Id: com.kagisohouse.co.za
+========== Build: 1 succeeded, 0 failed, 6 up-to-date, 0 skipped ==========
+========== Deploy: 0 succeeded, 0 failed, 0 skipped ==========
+Build started.
+Build succeeded.
+Launching...
+Using Xcode 9.4.1 found in /Applications/Xcode.app/Contents/Developer
+Xamarin.Hosting: Xamarin.Hosting
+Xamarin.Hosting:     Version: de4dbb6 (d15-7)
+Xamarin.Hosting:     Xcode: /Applications/Xcode.app
+Xamarin.Hosting:     Xcode Version: 9.4.1
+Xamarin.Hosting:     Verbosity: 1
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/DVTFoundation
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DVTiPhoneSimulatorRemoteClient.framework/DVTiPhoneSimulatorRemoteClient
+Xamarin.Hosting: Loaded /Library/Developer/PrivateFrameworks/CoreSimulator.framework/CoreSimulator
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/DTDeviceKitBase
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework/DVTKit
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKit.framework/DTDeviceKit
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DVTSourceControl.framework/DVTSourceControl
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DTXConnectionServices.framework/DTXConnectionServices
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DVTPortal.framework/DVTPortal
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DVTServices.framework/DVTServices
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftCore.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftDarwin.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftObjectiveC.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftDispatch.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftXPC.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftos.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftIOKit.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftCoreGraphics.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftFoundation.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftCoreData.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftCoreImage.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftQuartzCore.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/libswiftAppKit.dylib
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DVTDocumentation.framework/DVTDocumentation
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DVTAnalyticsClient.framework/DVTAnalyticsClient
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/DVTAnalytics.framework/DVTAnalytics
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/SourceKit.framework/SourceKit
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/Frameworks/IDEFoundation.framework/IDEFoundation
+Xamarin.Hosting: Loaded /Applications/Xcode.app/Contents/SharedFrameworks/IDEProducts.framework/IDEProducts
+Xamarin.Hosting: Simulator watchdogs are already disabled for 'iOS 11.4 (15F79) - iPhone X'.
+Copying in /Users/admin/Library/Caches/Xamarin/mtbs/builds/Fixmyplacemobileapp.iOS/e1247adbea5a893775c98cbce90327cf/bin/iPhoneSimulator/Debug/Fixmyplacemobileapp.iOS.app/.monotouch-64
+Xamarin.Hosting: No need to boot (already booted): iPhone X
+Xamarin.Hosting: Installing /Users/admin/Library/Caches/Xamarin/mtbs/builds/Fixmyplacemobileapp.iOS/e1247adbea5a893775c98cbce90327cf/bin/iPhoneSimulator/Debug/Fixmyplacemobileapp.iOS.app with Bundle Identifier com.kagisohouse.co.za on 'iOS 11.4 (15F79) - iPhone X'...
+Xamarin.Hosting: Installed 'com.kagisohouse.co.za' from /Users/admin/Library/Caches/Xamarin/mtbs/builds/Fixmyplacemobileapp.iOS/e1247adbea5a893775c98cbce90327cf/bin/iPhoneSimulator/Debug/Fixmyplacemobileapp.iOS.app
+Xamarin.Hosting: The bundle id com.kagisohouse.co.za was successfully installed.
+Xamarin.Hosting: Launching com.kagisohouse.co.za on 'iOS 11.4 (15F79) - iPhone X'
+Xamarin.Hosting: Launched com.kagisohouse.co.za with pid 6574
+Launch succeeded. The app 'Fixmyplacemobileapp.iOS' has been successfully launched on 'iPhone X iOS 11.4'.

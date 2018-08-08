@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fixmyplacemobileapp.Views.CarPage" Title="Add visitor car">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <StackLayout Margin="5">
+                <Label Text="Make" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding Make, Mode=TwoWay}" FontFamily="{StaticResource NormalFont}" FontSize="Small" Placeholder="VW" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            
+            <StackLayout  Margin="5">
+                <Label Text="Color" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding Color, Mode=TwoWay}" FontFamily="{StaticResource NormalFont}" FontSize="Small" Placeholder="White" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout  Margin="5">
+                <Label Text="Registration" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding Registration, Mode=TwoWay}" FontFamily="{StaticResource NormalFont}" FontSize="Small" Placeholder="000000GP" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <Button Text="Add car" TextColor="White"  BackgroundColor="{StaticResource Primary}" VerticalOptions="EndAndExpand" Command="{Binding AddCarCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

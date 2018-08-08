@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+                        x:Class="Fixmyplacemobileapp.App">
+    <Application.Resources>
+        <Style TargetType="Button" x:Key="buttons">
+            <Setter Property="CornerRadius" Value="15" />
+        </Style>
+       
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+            <On Platform="Android" Value="Roboto-Regular.ttf#Roboto Regular" />
+         </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="LightFont">
+                <On Platform="Android" Value="Roboto-Light.ttf#Roboto Light" />
+            </OnPlatform>
+            <Color x:Key="Primary">#0e2f44</Color>
+      <Color x:Key="PrimaryDark">#1976D2</Color>
+      <Color x:Key="Accent">#f6f6f6</Color>
+      <Color x:Key="LightBackgroundColor">#FAFAFA</Color>
+      <Color x:Key="DarkBackgroundColor">#C0C0C0</Color>
+      <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
+      <Color x:Key="LightTextColor">#999999</Color>
+      <Color x:Key="LabelTextColor">#512544</Color>
+      <Color x:Key="Red">#d34836</Color>
+         
+        </ResourceDictionary>
+  </Application.Resources>
+</prism:PrismApplication>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<icon:IconTabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="Fixmyplacemobileapp.Views.ImagesPage" Title="Images">
+    <icon:IconTabbedPage.Children>
+        <ContentPage Title="Image 1" Icon="md-image">
+            <Image Source="{Binding Image1}" />
+        </ContentPage>
+        <ContentPage Title="Image 2" Icon="md-image">
+            <Image Source="{Binding Image2}" />
+        </ContentPage>
+        <ContentPage Title="Image 3" Icon="md-image">
+            <Image Source="{Binding Image3}" />
+        </ContentPage>
+    </icon:IconTabbedPage.Children>
+</icon:IconTabbedPage>

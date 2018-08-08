@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="TechTechnician.Views.TechSettingsPage" Title="Settings">
+    <ContentPage.Content>
+       
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="{StaticResource Primary}">
+                <Label Text="{Binding Role}" HorizontalOptions="CenterAndExpand" FontSize="Medium" TextColor="White"></Label>
+                <Image Source="user.png" Aspect="AspectFit" Margin="10" />
+                
+            </StackLayout>
+            <StackLayout Grid.Row="1" BackgroundColor="{StaticResource Red}" >
+                <Label Text="{Binding Technician.Name}" FontFamily="{StaticResource NormalFont}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Medium" TextColor="White"></Label>
+                <Label Text="{Binding Technician.Email}" FontFamily="{StaticResource NormalFont}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Small" TextColor="White"></Label>
+                <Label Text="{Binding Technician.Contact}" FontFamily="{StaticResource NormalFont}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Small" TextColor="White"></Label>
+                <Label Text="{Binding Technician.Description}" FontFamily="{StaticResource NormalFont}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Micro" TextColor="White"></Label>
+            </StackLayout>
+
+            <ListView ItemsSource="{Binding Items}"  Margin="10"  Grid.Row="2" HasUnevenRows="True" SeparatorColor="{StaticResource Primary}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="10">
+                                <icon:IconImage IconSize="30" Icon="{Binding Icon}" IconColor="{StaticResource Primary}" VerticalOptions="Center"/>
+                                <Label Text="{Binding Name}" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" FontSize="Small" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Admin.Views.AdminJobcard" Title="Job cards">
+    
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem  Icon="ion-plus-round" Text="Add" IconColor="White" Command="{Binding AddJobCardCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <SearchBar HorizontalOptions="FillAndExpand" Text="{Binding SearchKey, Mode=TwoWay}" PlaceholderColor="{StaticResource Primary}" Placeholder="Search by name" />
+            <ListView x:Name="root" ItemsSource="{Binding JobList}" CachingStrategy="RecycleElement" SeparatorColor="{StaticResource Primary}" HasUnevenRows="True" SelectedItem="{Binding SelectedJob, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid x:Name="grid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+
+                                </Grid.ColumnDefinitions>
+                                <icon:IconLabel  FontSize="30" VerticalOptions="Center"   Text="ion-wrench" TextColor="{StaticResource Primary}"  />
+                                <StackLayout Margin="10" Grid.Column="1">
+                                    <Label Text="{Binding Name}" FontSize="Small"  TextColor="{StaticResource Primary}" />
+                                    <StackLayout Orientation="Horizontal" >
+                                        <icon:IconLabel Text="ion-calendar" HorizontalOptions="Start" VerticalOptions="Center"  TextColor="{StaticResource Primary}" FontSize="Medium"/>
+                                        <Label Text="{Binding Date, StringFormat=' Created On : {0:MM/dd/yy}'}"  FontSize="Micro" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

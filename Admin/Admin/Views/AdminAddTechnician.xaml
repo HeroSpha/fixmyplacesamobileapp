@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+              xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+           
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Admin.Views.AdminAddTechnician" Title="{Binding Title}" >
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="fa-wrench" Text="Jobcards"  Command="{Binding JobcardCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+        <icon:IconToolbarItem IconColor="White" Icon="fa-save" Text="Create"  Command="{Binding SaveCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+
+            <Picker Title="Select technician" ItemsSource="{Binding Technicians}" FontFamily="{StaticResource NormalFont}" FontSize="Small" ItemDisplayBinding="{Binding Name}"  SelectedItem="{Binding Technician}" />
+           
+            <StackLayout Margin="5">
+                <Label Text="{Binding Technician.Category.CategoryName, StringFormat='Category : {0}'}" FontSize="Small"  TextColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <Label Text="Selected Issues" TextColor="{StaticResource Primary}" FontSize="Small" />
+            <ListView ItemsSource="{Binding Issues, Mode=TwoWay}"  HasUnevenRows="True" SeparatorColor="{StaticResource Primary}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="10">
+                                <StackLayout HorizontalOptions="StartAndExpand" >
+                                    <Label Text="{Binding Title}" FontSize="Small"  TextColor="{StaticResource Primary}" />
+                                    <Label Text="{Binding Category.CategoryName}"  FontSize="Micro" />
+                                </StackLayout>
+                                <Switch IsToggled="{Binding IsResolved, Mode=TwoWay}" Margin="5" VerticalOptions="Center" HorizontalOptions="End" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

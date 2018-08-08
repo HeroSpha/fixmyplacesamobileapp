@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Client.Views.PostPage" Title="New Issue">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Text="Save" Icon="ion-checkmark-round" Command="{Binding SaveCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10">
+                <StackLayout Orientation="Horizontal" Margin="5">
+                    <Entry Placeholder="Title" Text="{Binding Title}" FontSize="Small" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="5">
+                    <Entry Placeholder="Full address" HorizontalOptions="FillAndExpand" IsEnabled="False" FontSize="Small" Text="{Binding Address}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="5">
+                    <Label Text="Category" FontSize="Small" TextColor="{StaticResource Primary}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                   
+                </StackLayout>
+                <Label Text="Description" FontSize="Small" TextColor="{StaticResource Primary}" />
+                <StackLayout Margin="5" VerticalOptions="FillAndExpand">
+                    <Editor Text="{Binding Description}" FontSize="Small" VerticalOptions="FillAndExpand" HeightRequest="100" Keyboard="Chat"/>
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

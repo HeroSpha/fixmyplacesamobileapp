@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Admin.Views.AddJobcardPage" Title="Create jobcard">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Job name" FontSize="Micro" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}"  />
+            <Entry Placeholder="new jobcard" Text="{Binding Name, Mode=TwoWay}" FontSize="Small"/>
+            <Label Text="Description" FontSize="Micro" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}"  />
+            <Editor FontSize="Small" AutoSize="TextChanges" FontFamily="{StaticResource NormalFont}" Text="{Binding Description, Mode=TwoWay}"/>
+            <Button Text="Create jobcard" CornerRadius="20" Command="{Binding CreatejobCommand}" TextColor="White" BackgroundColor="{StaticResource Primary}" VerticalOptions="EndAndExpand"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+  
+</ContentPage>

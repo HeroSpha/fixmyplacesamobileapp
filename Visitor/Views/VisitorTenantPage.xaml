@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Visitor.Views.VisitorTenantPage" Title="Tenants">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <SearchBar Placeholder="search tenants" />
+            <ListView  ItemsSource="{Binding Tenants}" HasUnevenRows="True" SelectedItem="{Binding Tenant, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <icon:IconImage Icon="md-face" IconSize="50" IconColor="{StaticResource Primary}"/>
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Firstname}"/>
+                                        <Label Text="{Binding Lastname}" />
+                                    </StackLayout>
+                                    <Label Text="{Binding Unit}" FontSize="Micro" TextColor="{StaticResource Primary}" />
+                                </StackLayout>
+                                <icon:IconImage Icon="md-how-to-reg" HorizontalOptions="End" IconSize="50" IconColor="{StaticResource Primary}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

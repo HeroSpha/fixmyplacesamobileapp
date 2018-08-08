@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:local="clr-namespace:SharedCode.Converters;assembly=Shared"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Admin.Views.AdminIssuesPage" Title="Logged Issues">
+    <ContentPage.Content >
+        <StackLayout Margin="10">
+            <SearchBar HorizontalOptions="FillAndExpand" Text="{Binding SearchKey, Mode=TwoWay}" Placeholder="Search by name" PlaceholderColor="{StaticResource Primary}"/>
+            <ListView  ItemsSource="{Binding Issues}" CachingStrategy="RecycleElement" HasUnevenRows="True" SelectedItem="{Binding SelectedIssue, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout x:Name="stackRoot" Orientation="Horizontal">
+                                <icon:IconLabel Text="{Binding Status, Converter={local:IconStatusConverter}}" Margin="5" FontSize="30" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{Binding Status, Converter={local:ColorStatusConverter}}" />
+                                <StackLayout HorizontalOptions="FillAndExpand" Margin="5">
+                                    <Label Text="{Binding Title}" FontFamily="{StaticResource LightFont}"   FontSize="Small" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Address}" HorizontalOptions="StartAndExpand" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}"  FontSize="Micro"  />
+                                        <Label Text="{Binding PostedOn, StringFormat='Posted On :{0}'}" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" HorizontalOptions="End"  FontSize="Micro"   />
+                                    </StackLayout>
+                                </StackLayout>
+                                <!--<icon:IconButton HorizontalOptions="End" Text="fa-bars" WidthRequest="45" Command="{Binding BindingContext.MenuCommand, Source={x:Reference JobPage}}" CommandParameter="{Binding .}" TextColor="White" BackgroundColor="{StaticResource Primary}" />-->
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

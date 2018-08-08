@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Visitor.Views.AddVisitorPage" Title="Add Visitor">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="md-account-circle" FontSize="20" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Firstname" HorizontalOptions="FillAndExpand" Text="{Binding Firstname, Mode=TwoWay}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="md-account-circle" FontSize="20" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Lastname" HorizontalOptions="FillAndExpand" Text="{Binding Lastname, Mode=TwoWay}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="ion-card" FontSize="20" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Id / Passport number" HorizontalOptions="FillAndExpand" Text="{Binding IdNumber, Mode=TwoWay}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="fa-phone" FontSize="20" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Phone number" HorizontalOptions="FillAndExpand" Text="{Binding PhoneNumber, Mode=TwoWay}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="fa-car" FontSize="20" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Car registration" HorizontalOptions="FillAndExpand" Text="{Binding RegNumber, Mode=TwoWay}"/>
+            </StackLayout>
+            <StackLayout>
+                <Picker Title="Pick a department" SelectedItem="{Binding Department}" ItemsSource="{Binding Departments}"  HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding Name}" />
+            </StackLayout>
+            <StackLayout>
+                <Picker Title="Pick gender" SelectedItem="{Binding Gender, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" >
+                    <Picker.Items>
+                        <x:String>Male</x:String>
+                        <x:String>Female</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            <StackLayout>
+               
+            </StackLayout>
+            <Button Text="Add Visitor" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource Primary}" TextColor="White" Command="{Binding AddVisitorCommand}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

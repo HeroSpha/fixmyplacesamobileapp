@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Admin.Views.PropertiesPage" Title="Properties">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <SearchBar Placeholder="search property" Text="{Binding SearchText, Mode=TwoWay}" />
+            <ListView Grid.Row="1" CachingStrategy="RecycleElement" ItemsSource="{Binding Properties, Mode=TwoWay}" HasUnevenRows="True" SeparatorColor="{StaticResource Primary}" SelectedItem="{Binding Property,Mode=TwoWay}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="5,5">
+                                <controls:CircleImage Source="{Binding Parent.Logo}" VerticalOptions="Center" Margin="2" Aspect="AspectFit" BorderColor="{StaticResource Primary}" BorderThickness="2">
+                                    <controls:CircleImage.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="Android, iOS">55</On>
+                                            <On Platform="WinPhone, UWP">75</On>
+                                        </OnPlatform>
+                                    </controls:CircleImage.WidthRequest>
+                                    <controls:CircleImage.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="Android, iOS">55</On>
+                                            <On Platform="WinPhone, UWP">75</On>
+                                        </OnPlatform>
+                                    </controls:CircleImage.HeightRequest>
+                                </controls:CircleImage>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding TenantName}" FontFamily="{StaticResource LightFont}" TextColor="{StaticResource Primary}" FontSize="Small" VerticalOptions="CenterAndExpand" />
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <icon:IconLabel Text="ion-android-home" FontSize="Small" TextColor="{StaticResource Primary}" VerticalOptions="Center"/>
+                                            <Label Text="{Binding Address}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" TextColor="{StaticResource Primary}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <icon:IconLabel Text="md-vpn-key" FontSize="Small" VerticalOptions="Center" TextColor="{StaticResource Primary}" />
+                                            <Label Text="{Binding LookupId}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" TextColor="{StaticResource Primary}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

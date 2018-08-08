@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Admin.Views.AdminAddTenant">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Firstname" FontSize="Micro" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" />
+            <Entry Placeholder="Jane" Text="{Binding Firstname, Mode=TwoWay}" FontSize="Small" FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Lastname" FontSize="Micro" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" />
+            <StackLayout>
+                <StackLayout BackgroundColor="{StaticResource Primary}" Padding="2">
+                    <icon:IconLabel Text="md-account-box" TextColor="White" />
+                </StackLayout>
+                <Entry Placeholder="Jane" Text="{Binding Lasttname, Mode=TwoWay}" FontSize="Small" FontFamily="{StaticResource NormalFont}"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

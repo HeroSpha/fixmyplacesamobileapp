@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Visitor.Views.SecVisitorDetail" Title="Visitor detail">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <icon:IconLabel Text="md-face" FontSize="200" TextColor="ForestGreen" HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding Visitor.Firstname}" FontSize="Large" TextColor="{StaticResource Primary}" />
+                <Label Text="{Binding Visitor.Lastname}" FontSize="Large" TextColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="md-picture-in-picture-alt" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                <Label Text="{Binding Visitor.IdNumber}" VerticalOptions="Center"  />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="md-perm-phone-msg" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                <Label Text="{Binding Visitor.PhoneNumber, StringFormat='Phone number : {0}'}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="md-query-builder" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                <Label Text="{Binding Visitor.DateIn}"  TextColor="Red"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="md-watch-later" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                <Label Text="{Binding Visitor.DateOut}" TextColor="ForestGreen" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="Tenant details" FontSize="Medium" TextColor="{StaticResource Primary}" />
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <icon:IconLabel Text="md-wc" VerticalOptions="Center" FontSize="50" TextColor="{StaticResource Primary}"/>
+                <StackLayout VerticalOptions="Center">
+                    <Label Text="{Binding Visitor.Customer.Firstname}" />
+                    <Label Text="{Binding Visitor.Customer.Lastname}" />
+                </StackLayout>
+            </StackLayout>
+          
+            
+            <Button Text="Check out" VerticalOptions="EndAndExpand" TextColor="White" Command="{Binding CheckoutCommnad}" BackgroundColor="{StaticResource Primary}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

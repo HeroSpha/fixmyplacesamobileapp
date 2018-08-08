@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="TechTechnician.Views.TechJobsPage" Title="Jobcards">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <SearchBar HorizontalOptions="FillAndExpand" Text="{Binding SearchKey, Mode=TwoWay}" PlaceholderColor="{StaticResource Primary}" Placeholder="Search by name" />
+            <ListView x:Name="root" ItemsSource="{Binding JobList}" CachingStrategy="RecycleElement" SeparatorColor="{StaticResource Primary}" HasUnevenRows="True" SelectedItem="{Binding SelectedJob, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid x:Name="grid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                   
+                                </Grid.ColumnDefinitions>
+                                <icon:IconImage  IconSize="30"  Icon="ion-wrench" IconColor="{StaticResource Primary}"  />
+                                <StackLayout Margin="10" Grid.Column="1">
+                                    <Label Text="{Binding Name}" FontSize="Small" FontFamily="{StaticResource LightFont}"  TextColor="{StaticResource Primary}" />
+                                    <StackLayout Orientation="Horizontal" >
+                                        <icon:IconLabel Text="fa-calendar" VerticalOptions="Center"  TextColor="{StaticResource Primary}" FontSize="Medium" />
+                                        <Label Text="{Binding Date, StringFormat='Created On : {0:MM/dd/yy}'}" FontFamily="{StaticResource NormalFont}"  FontSize="Micro" VerticalOptions="Center" />
+                                    </StackLayout>
+                                </StackLayout>
+                                
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

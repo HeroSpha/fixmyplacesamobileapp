@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Admin.Views.AdminPostPage" Title="New issue">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Text="Save" Icon="ion-checkmark-round"  Command="{Binding SaveCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10">
+                <StackLayout Margin="5">
+                    <Label Text="Subject" FontSize="Micro" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" />
+                    <Entry Placeholder="Title" Text="{Binding Title, Mode=TwoWay}"  FontFamily="{StaticResource NormalFont}" FontSize="Small" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Margin="5">
+                    <Label Text="Unit" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" FontSize="Micro" />
+                    <Entry Placeholder="Address"  FontFamily="{StaticResource NormalFont}"  HorizontalOptions="FillAndExpand" IsEnabled="False" FontSize="Small" Text="{Binding Customer.Unit}"/>
+                </StackLayout>
+                <StackLayout Margin="5">
+                    <Label Text="Issue category" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" FontSize="Micro" />
+                    <Picker SelectedItem="{Binding Category, Mode=TwoWay}"  FontFamily="{StaticResource NormalFont}" ItemDisplayBinding="{Binding CategoryName}" HorizontalOptions="FillAndExpand"  VerticalOptions="Center" Title="Select category" ItemsSource="{Binding CategoryList}"/>
+                </StackLayout>
+                <StackLayout Margin="5" VerticalOptions="FillAndExpand">
+                    <Label Text="Description" FontSize="Small"  FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" />
+                    <Editor Text="{Binding Description, Mode=TwoWay}"  FontFamily="{StaticResource NormalFont}" FontSize="Small" VerticalOptions="FillAndExpand" AutoSize="TextChanges" Keyboard="Chat"/>
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TechTechnician.Views.TechCalendarPage" Title="Calendar">
+    <ContentPage.Content>
+        <controls:Calendar VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" SelectedBorderColor="{StaticResource Primary}" TitleLabelText="Calendar" DateCommand="{Binding DateCommand}" SelectedDate="{Binding SpecialDate}" Padding="10" StartDay="Monday" SpecialDates="{Binding SpecialDates}" SelectedBorderWidth="4" DisabledBorderColor="Black">
+
+        </controls:Calendar>
+    </ContentPage.Content>
+</ContentPage>

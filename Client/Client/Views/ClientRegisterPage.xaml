@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Client.Views.ClientRegisterPage" Title="Register">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Text="link" Icon="ion-link" Command="{Binding RegisterCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <StackLayout>
+                <Label Text="First name" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding FirstName}" FontFamily="{StaticResource NormalFont}" FontSize="Small" HorizontalOptions="FillAndExpand" Placeholder="Firstname" PlaceholderColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Last name" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding LastName}" FontFamily="{StaticResource NormalFont}" FontSize="Small" HorizontalOptions="FillAndExpand" Placeholder="Lastname" PlaceholderColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="ID / Passport" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding IdNumber}" FontFamily="{StaticResource NormalFont}" FontSize="Small" HorizontalOptions="FillAndExpand" Placeholder="ID Number / Passport" PlaceholderColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Unit / Address" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding Unit}" FontFamily="{StaticResource NormalFont}" FontSize="Small" HorizontalOptions="FillAndExpand" Placeholder="Unit 34" PlaceholderColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Email" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding Email}" FontFamily="{StaticResource NormalFont}" FontSize="Small" HorizontalOptions="FillAndExpand" Placeholder="johndoe@domain.com" PlaceholderColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Phone number" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding Phone}" FontFamily="{StaticResource NormalFont}" FontSize="Small" HorizontalOptions="FillAndExpand" Placeholder="0616050130" PlaceholderColor="{StaticResource Primary}"/>
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

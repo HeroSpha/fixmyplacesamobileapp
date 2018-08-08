@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Admin.Views.AdminVisitorDetailPage" Title="Visitor details">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="md-delete"  Command="{Binding DeleteCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+        <icon:IconToolbarItem IconColor="White" Icon="md-check"  Command="{Binding CheckoutCommnad}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <icon:IconLabel Text="md-face" FontSize="150" TextColor="{StaticResource Primary}" HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding Visitor.Firstname}" FontSize="Medium" FontFamily="{StaticResource LightFont}" />
+                <Label Text="{Binding Visitor.Lastname}" FontSize="Medium" FontFamily="{StaticResource LightFont}"/>
+            </StackLayout>
+            <Label Text="{Binding Visitor.IdNumber, StringFormat='ID number : {0}'}" FontSize="Small" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" />
+            <Label Text="{Binding Visitor.PhoneNumber, StringFormat='Phone number : {0}'}" FontSize="Small" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}"/>
+            <Label Text="{Binding Visitor.DateIn, StringFormat='Check in : {0}'}"  TextColor="Red" FontSize="Small" FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="{Binding Visitor.DateOut, Mode=TwoWay, StringFormat='Check out : {0}'}" TextColor="ForestGreen" FontSize="Small" FontFamily="{StaticResource NormalFont}" />
+
+            <Label Text="Tenant details" FontFamily="{StaticResource NormalFont}" FontSize="Medium" TextColor="{StaticResource Primary}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Visitor.Customer.Firstname}" FontSize="Small" FontFamily="{StaticResource NormalFont}"/>
+                <Label Text="{Binding Visitor.Customer.Lastname}" FontSize="Small" FontFamily="{StaticResource NormalFont}"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

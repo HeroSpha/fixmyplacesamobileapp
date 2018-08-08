@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Client.Views.ClientAddVisitor" Title="Add Visitor">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="md-save" Text="add visitor"  Command="{Binding SaveCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+<ContentPage.Content>
+        <StackLayout Margin="10">
+            <StackLayout Margin="5">
+                <Label Text="First name" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding Firstname, Mode=TwoWay}" FontFamily="{StaticResource NormalFont}" FontSize="Small" Placeholder="John" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Margin="5">
+                <Label Text="Last name" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding Lastname, Mode=TwoWay}" FontSize="Small" FontFamily="{StaticResource NormalFont}" Placeholder="Doe" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Margin="5">
+                <Label Text="Phone" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding PhoneNumber, Mode=TwoWay}" FontSize="Small" FontFamily="{StaticResource NormalFont}" Placeholder="061 605 0130" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Margin="5">
+                <Label Text="Id / Passport" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" />
+                <Entry Text="{Binding IdNumber, Mode=TwoWay}" FontSize="Small" FontFamily="{StaticResource NormalFont}"  Placeholder="" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Margin="5">
+                <Picker Title="Pick a department" FontSize="Small" FontFamily="{StaticResource NormalFont}" SelectedItem="{Binding Department}" ItemsSource="{Binding Departments}"  HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding Name}" />
+            </StackLayout>
+            <StackLayout Margin="5">
+                <Picker Title="Select gender" FontSize="Small" FontFamily="{StaticResource NormalFont}"  SelectedItem="{Binding Gender, Mode=TwoWay}"  HorizontalOptions="FillAndExpand" >
+                    <Picker.Items>
+                        <x:String>Male</x:String>
+                        <x:String>Female</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            <Button IsVisible="{Binding CanAdd}" Text="Add car"  Command="{Binding AddCarCommand}" TextColor="White" BackgroundColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}">
+
+            </Button>
+          
+            <Button Text="Remove car" VerticalOptions="EndAndExpand" IsVisible="{Binding IsVisible}" Command="{Binding RemoveCarCommand}" TextColor="White" BackgroundColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}">
+                
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

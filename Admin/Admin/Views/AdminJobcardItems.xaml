@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:local="clr-namespace:SharedCode.Converters;assembly=Shared"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Admin.Views.AdminJobcardItems" Title="Jobcard items">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="ion-trash-b" Text="delete"   Command="{Binding DeleteCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content >
+        <StackLayout Margin="10" x:Name="root">
+            <SearchBar HorizontalOptions="FillAndExpand" Text="{Binding SearchKey, Mode=TwoWay}" Placeholder="Search by name" PlaceholderColor="{StaticResource Primary}"/>
+            <ListView  ItemsSource="{Binding JobItems}" CachingStrategy="RecycleElement" HasUnevenRows="True" SelectedItem="{Binding SelectedIssue, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout x:Name="stackRoot" Orientation="Horizontal" Margin="5">
+                                <icon:IconLabel Text="{Binding Status, Converter={local:IconStatusConverter}}" Margin="5" FontSize="30" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{Binding Status, Converter={local:ColorStatusConverter}}" />
+                                <StackLayout HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Title}"  TextColor="{StaticResource Primary}" FontSize="Small" />
+                                    <Label Text="{Binding Description}"  FontSize="Micro" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+                                <!--<icon:IconButton HorizontalOptions="End" Text="fa-bars" WidthRequest="45" Command="{Binding BindingContext.MenuCommand, Source={x:Reference JobPage}}" CommandParameter="{Binding .}" TextColor="White" BackgroundColor="{StaticResource Primary}" />-->
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

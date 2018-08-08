@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<icon:IconTabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:local="clr-namespace:SharedCode.Converters;assembly=Shared"
+            xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+            x:Class="Client.Views.ClientIssuePage" Title="Issue details">
+    <ContentPage Title="Details" Icon="md-assignment">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <icon:IconLabel Grid.Row="0" VerticalOptions="CenterAndExpand" Text="{Binding Issue.Status, Converter={local:IconStatusConverter}}" Margin="5" FontSize="150"  HorizontalOptions="CenterAndExpand" TextColor="{Binding Issue.Status, Converter={local:ColorStatusConverter}}" />
+            <ScrollView  Grid.Row="1">
+                <StackLayout>
+                    <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="0.2" />
+                    <Label Text="{Binding Issue.Title}" FontFamily="{StaticResource LightFont}" FontSize="Medium"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Issue.Address, StringFormat='Unit : {0}'}" VerticalOptions="Center" TextColor="{StaticResource Primary}" FontSize="Small"></Label>
+                    </StackLayout>
+                    <Label Text="{Binding Issue.PostedOn, StringFormat='Posted on  {0}'}" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro"></Label>
+                    <Label Text="{Binding Issue.isResolved, StringFormat='Is resolved? : {0}'}" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro"></Label>
+                    <Label Text="{Binding DateStamp.StartDate, StringFormat='Fix date : {0}'}" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro"></Label>
+                    <!--<maps:Map x:Name="map" IsVisible="{Binding LocationAvailable}" VerticalOptions="FillAndExpand" MapType="Street" MyLocationEnabled="True" IsShowingUser="True">
+                          
+                        </maps:Map>-->
+
+                    <Button Text="Complete" CornerRadius="20" Command="{Binding MarkCompleteCommand}"  BackgroundColor="{StaticResource Primary}" TextColor="White" VerticalOptions="EndAndExpand" IsVisible="{Binding Visibility}"></Button>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage>
+    <ContentPage Title="Technician" Icon="md-build">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <icon:IconLabel Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="150" TextColor="{StaticResource Primary}" Text="md-build"/>
+            <ScrollView  Grid.Row="1">
+                <StackLayout>
+                    <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="0.2" />
+                    <Label Text="{Binding Technicians.Name}" FontFamily="{StaticResource LightFont}" FontSize="Medium"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Technicians.Phone, StringFormat='Phone : {0}'}" VerticalOptions="Center" TextColor="{StaticResource Primary}" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <Label Text="{Binding Technicians.Email, StringFormat='Email  {0}'}" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro"></Label>
+                   
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage>
+</icon:IconTabbedPage>

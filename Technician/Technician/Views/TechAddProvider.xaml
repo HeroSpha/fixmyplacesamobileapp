@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="TechTechnician.Views.TechAddProvider" Title="Add Provider">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem Icon="ion-link" IconColor="White" Text="link" Command="{Binding RequestCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry HorizontalOptions="FillAndExpand" Placeholder="Lookup Key" Text="{Binding LookupKey, Mode=TwoWay}" PlaceholderColor="{StaticResource Primary}" />
+                    <icon:IconButton BackgroundColor="{StaticResource Primary}" WidthRequest="40" TextColor="White" Text="ion-search" VerticalOptions="Center" HorizontalOptions="End" Command="{Binding SearchCommand}" />
+                </StackLayout>
+                <Button Text="Scan QRCODE" Command="{Binding QRCodeCommand}" TextColor="White" BackgroundColor="{StaticResource Primary}" />
+            </StackLayout>
+            <ScrollView Grid.Row="1" IsVisible="{Binding Visible}">
+                <StackLayout >
+                    <Image Source="{Binding Provider.Parent.Logo}" HeightRequest="100" Aspect="AspectFit" />
+                    <StackLayout Orientation="Horizontal">
+                        <icon:IconLabel Text="ion-android-create" TextColor="{StaticResource Primary}" VerticalOptions="CenterAndExpand" FontSize="Small" HorizontalOptions="Start" />
+                        <Label Text="{Binding Provider.TenantName}" FontSize="Small" TextColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <icon:IconLabel Text="ion-ios-home" TextColor="{StaticResource Primary}" VerticalOptions="CenterAndExpand" FontSize="Small" HorizontalOptions="Start" />
+                        <Label Text="{Binding Provider.Address}" FontSize="Small" HorizontalOptions="FillAndExpand" TextColor="{StaticResource Primary}" />
+                    </StackLayout>
+                    
+                   
+                    <Label Text="{Binding Provider.Description}" FontSize="Small" HorizontalOptions="FillAndExpand" />
+
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+            
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             x:Class="Client.Views.ClientLocationPage" Title="Select location">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="ion-android-cancel"  Text="Cancel" Command="{Binding CancelLocationCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout></StackLayout>
+    </ContentPage.Content>
+    <!--<ContentPage.Content>
+        <StackLayout>
+            <maps:Map x:Name="map"
+                      VerticalOptions="FillAndExpand" MapType="Street" MyLocationEnabled="True" IsShowingUser="True">
+                <maps:Map.Behaviors>
+                    <b:EventToCommandBehavior EventName="MapClicked" Command="{Binding MapClickedCommand}" EventArgsParameterPath="Point" />
+                </maps:Map.Behaviors>
+
+            </maps:Map>
+        </StackLayout>
+    </ContentPage.Content>-->
+</ContentPage>

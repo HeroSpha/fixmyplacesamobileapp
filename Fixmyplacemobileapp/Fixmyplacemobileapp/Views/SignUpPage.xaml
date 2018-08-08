@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fixmyplacemobileapp.Views.SignUpPage" Title="Sign up">
+
+    <ContentPage.Content>
+        
+        <Grid>
+            <Image Source="background01.png" Aspect="AspectFill" />
+            <StackLayout Margin="20" HorizontalOptions="CenterAndExpand" Orientation="Horizontal"  VerticalOptions="Start">
+                <Image Source="androidwhiteblack.png" HeightRequest="80" Aspect="AspectFit" />
+                <BoxView BackgroundColor="White"  WidthRequest="0.3" />
+                <Label Text="FixmyPlace"   FontSize="40" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource Red}" >
+                    <!--<Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <OnPlatform.Android>Calibri Light</OnPlatform.Android>
+                                    <OnPlatform.iOS>Courier New</OnPlatform.iOS>
+                                </OnPlatform>
+                            </Label.FontFamily>-->
+                </Label>
+
+            </StackLayout>
+            <StackLayout  HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" Margin="10" >
+                <StackLayout.HorizontalOptions>
+                    <OnIdiom x:TypeArguments="LayoutOptions">
+                        <!--<OnIdiom.Phone>FillAndExpand</OnIdiom.Phone>
+                        <OnIdiom.Tablet>Center</OnIdiom.Tablet>-->
+                    </OnIdiom>
+                </StackLayout.HorizontalOptions>
+
+               
+                <StackLayout Orientation="Horizontal">
+                    <icon:IconImage Icon="fa-user" IconColor="White" IconSize="20" HorizontalOptions="Start" />
+                    <Entry  Text="{Binding Username}"  Placeholder="joedoe@example.com" PlaceholderColor="LightGray" TextColor="White" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <icon:IconImage Icon="ion-locked" IconColor="White" IconSize="20" HorizontalOptions="Start" />
+                    <Entry  Text="{Binding Password}" PlaceholderColor="LightGray" IsPassword="True" Placeholder="password" HorizontalOptions="FillAndExpand" TextColor="White"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <icon:IconImage Icon="ion-locked" IconColor="White" IconSize="20" />
+                    <Entry Text="{Binding ConfirmPassword}" IsPassword="True" PlaceholderColor="LightGray"  Placeholder="confirm password" HorizontalOptions="FillAndExpand"  TextColor="White"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label VerticalOptions="Center" Text="Register as" TextColor="White" HorizontalOptions="Start"/>
+                    <Picker ItemsSource="{Binding Roles}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Title="Select role" ItemDisplayBinding="{Binding RoleName}" TextColor="White" SelectedItem="{Binding SelectedRole, Mode=TwoWay}" />
+                </StackLayout>
+                <Button Margin="2" Text="Register" HorizontalOptions="FillAndExpand" TextColor="White" BackgroundColor="{StaticResource Red}" Command="{Binding RegisterCommand}" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

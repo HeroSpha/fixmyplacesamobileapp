@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Admin.Views.SelectTechniciansPage" Title="Technician">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="fa-save" Text="Create"  Command="{Binding SaveCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Picker Title="Select technician" ItemsSource="{Binding Technicians}" FontFamily="{StaticResource NormalFont}" FontSize="Small" ItemDisplayBinding="{Binding Name}"  SelectedItem="{Binding Technician}" />
+            <StackLayout>
+                <Label Text="{Binding Technician.Category.CategoryName}" FontSize="Small" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}"/>
+                <Label Text="{Binding Technician.Description}" FontSize="Micro" FontFamily="{StaticResource NormalFont}"  TextColor="{StaticResource Primary}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

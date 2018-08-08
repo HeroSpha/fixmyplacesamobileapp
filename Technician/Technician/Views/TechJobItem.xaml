@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:SharedCode.Converters;assembly=Shared"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TechTechnician.Views.TechJobItem" Title="Job Item">
+             
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem Icon="ion-navigate" IconColor="White" IsVisible="{Binding LocationAvailable}"  Text="Location" Command="{Binding LocationCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+        <icon:IconToolbarItem Icon="fa-money" IconColor="White"  Text="cost" Command="{Binding CostCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+        <icon:IconToolbarItem Icon="ion-checkmark-circled" IconColor="White"  Text="complete" Command="{Binding CompleteCommmand}" IsVisible="{Binding IsComplete}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+        <icon:IconToolbarItem Icon="ion-calendar" IconColor="White"  Text="add date" Command="{Binding AddDateCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView >
+            <Grid  Margin="10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <icon:IconLabel Grid.Row="0" VerticalOptions="CenterAndExpand" Text="{Binding Issue.Status, Converter={local:IconStatusConverter}}" Margin="5" FontSize="150"  HorizontalOptions="CenterAndExpand" TextColor="{Binding Issue.Status, Converter={local:ColorStatusConverter}}" />
+                <ScrollView  Grid.Row="1">
+                    <StackLayout>
+                        <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="0.2" />
+                        <Label Text="{Binding Issue.Title}" FontSize="Medium" FontFamily="{StaticResource LightFont}" />
+                        <StackLayout Orientation="Horizontal">
+                            <icon:IconImage Icon="ion-home" IconSize="20" IconColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Start" />
+                            <Label Text="{Binding Issue.Address}" VerticalOptions="Center" FontFamily="{StaticResource NormalFont}" FontSize="Small" />
+                        </StackLayout>
+                        <Label Text="{Binding Issue.IsResolved, StringFormat='Is resolved? : {0}'}" FontFamily="{StaticResource NormalFont}" FontSize="Small" TextColor="{StaticResource Primary}" />
+
+                        <Label Text="{Binding Issue.Description}" FontFamily="{StaticResource NormalFont}" FontSize="Small" TextColor="{StaticResource Primary}"/>
+
+                        <StackLayout VerticalOptions="EndAndExpand">
+                            <Button Text="Images" CornerRadius="20" Command="{Binding ImagesCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White"></Button>
+                            <Button Text="View tenant"  CornerRadius="20" Command="{Binding CustomerCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White"></Button>
+                        </StackLayout>
+                       
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

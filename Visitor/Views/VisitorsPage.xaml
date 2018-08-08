@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+            xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Visitor.Views.VisitorsPage" Title="Visitors">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="ion-plus-round" Text="Add" Command="{Binding AddCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <SearchBar Text="{Binding SearchText, Mode=TwoWay}" />
+            <ListView CachingStrategy="RecycleElement" HasUnevenRows="True" ItemsSource="{Binding Visitors}" SelectedItem="{Binding Visitor, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <icon:IconImage Icon="md-face" IconSize="50" IconColor="{StaticResource Primary}"/>
+                                <StackLayout Margin="5">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Firstname}" TextColor="{StaticResource Primary}" FontSize="Small" />
+                                        <Label Text="{Binding Lastname}" TextColor="{StaticResource Primary}" FontSize="Small"/>
+
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding DateIn, StringFormat='Date in : {0}'}" HorizontalOptions="Start" TextColor="Red" FontSize="10" />
+                                        <Label Text="{Binding DateOut, StringFormat='DateOut : {0}'}" HorizontalOptions="End" TextColor="ForestGreen" FontSize="10"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

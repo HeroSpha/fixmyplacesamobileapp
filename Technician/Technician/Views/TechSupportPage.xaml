@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:SharedCode.Converters"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+            
+              
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TechTechnician.Views.TechSupportPage" Title="Support Page">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White"   Icon="ion-android-add"  Command="{Binding AddIssueCommand}" Text="Add">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Issues}" CachingStrategy="RecycleElement"  SeparatorColor="{StaticResource Primary}" SelectedItem="{Binding SelectedIssue, Mode=TwoWay}" HasUnevenRows="True" Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+
+                            <icon:IconLabel VerticalOptions="Center" FontSize="40" TextColor="{Binding Status, Converter={local:ColorStatusConverter}}" HorizontalOptions="Start" Text="ion-ios-pricetag" />
+                            <StackLayout>
+                                <Label Text="{Binding Title}" VerticalOptions="Start" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <icon:IconLabel Text="ion-android-calendar" TextColor="{StaticResource Primary}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" FontSize="Medium"/>
+                                    <Label Text="{Binding PostedOn, StringFormat='Posted On : {0:MM/dd/yyyy}'}" TextColor="{StaticResource Primary}"  FontSize="Small"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

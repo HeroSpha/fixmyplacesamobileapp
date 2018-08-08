@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fixmyplacemobileapp.Views.MainPage" Title="Login">
+   
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid VerticalOptions="FillAndExpand"  >
+                <Image Source="background01.png" Aspect="AspectFill"></Image>
+                <StackLayout   VerticalOptions="FillAndExpand" >
+                    <StackLayout.HorizontalOptions>
+                        <OnIdiom x:TypeArguments="LayoutOptions">
+                            <OnIdiom.Phone>FillAndExpand</OnIdiom.Phone>
+                            <OnIdiom.Tablet>Center</OnIdiom.Tablet>
+                            <OnIdiom.Desktop>Center</OnIdiom.Desktop>
+                        </OnIdiom>
+                    </StackLayout.HorizontalOptions>
+
+                    <StackLayout Margin="10, 40, 10,10" HorizontalOptions="CenterAndExpand" Orientation="Horizontal"  VerticalOptions="Start">
+                        <Image Source="androidwhiteblack.png" HeightRequest="80" Aspect="AspectFit" />
+                        <BoxView BackgroundColor="White"  WidthRequest="0.3" />
+                        <Label Text="Kagiso House"  FontFamily="{StaticResource LightFont}" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" >
+                          
+                        </Label>
+
+                    </StackLayout>
+                    <StackLayout VerticalOptions="EndAndExpand" Margin="10" >
+                        <StackLayout Orientation="Horizontal" Margin="5" >
+                            <icon:IconLabel Text="md-account-circle" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Large" TextColor="White" />
+                            <Entry Placeholder="username" TextColor="White" FontFamily="{StaticResource NormalFont}" PlaceholderColor="LightGray"   VerticalOptions="Center"  HorizontalOptions="FillAndExpand" Text="{Binding Username}">
+                                <Entry.TextColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="iOS|UWP" >#0000FF</On>
+                                        <On Platform="Android">#ffffff</On>
+                                    </OnPlatform>
+                                </Entry.TextColor>
+                            </Entry>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Margin="5">
+                            <icon:IconLabel HorizontalOptions="Start"  VerticalOptions="Center" Text="md-vpn-key" FontSize="Large" TextColor="White" />
+                            <Entry Placeholder="*******" PlaceholderColor="LightGray" TextColor="White"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" IsPassword="True" Text="{Binding Password}">
+                                <Entry.TextColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="iOS|UWP" >#0000FF</On>
+                                        <On Platform="Android">#ffffff</On>
+                                    </OnPlatform>
+                                </Entry.TextColor>
+                            </Entry>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Margin="5">
+                            <StackLayout WidthRequest="20">
+
+                            </StackLayout>
+                            <Button Margin="2" FontFamily="{StaticResource NormalFont}" VerticalOptions="CenterAndExpand"  TextColor="{StaticResource Primary}" BackgroundColor="White" Text="Log in" HorizontalOptions="FillAndExpand" Command="{Binding SignInCommand}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                            <Label Text="Forgot password?" FontFamily="{StaticResource NormalFont}" TextColor="White" />
+                            <Label Text="Reset password" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Red}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ResetCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+            <StackLayout Grid.Row="1" Margin="10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                    <Label Text="Powered by" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" />
+                    <Label Text="FixmyPlace" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Red}">
+                      
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+            
+        </Grid>
+
+        <!--<ScrollView>
+            
+           
+        </ScrollView>-->
+    </ContentPage.Content>
+</ContentPage>

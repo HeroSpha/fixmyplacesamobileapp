@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Client.Views.ClientDetails" Title="Details">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="White">
+                <Image Source="{Binding Provider.Parent.Logo}" Aspect="AspectFit" HeightRequest="150" />
+            </StackLayout>
+           
+            <StackLayout Grid.Row="1">
+                <BoxView HeightRequest="0.2" BackgroundColor="{StaticResource Primary}" />
+                <Label Text="{Binding Provider.TenantName}" HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource LightFont}" FontSize="Large" TextColor="{StaticResource Primary}" />
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <icon:IconLabel Text="md-home" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Medium" TextColor="{StaticResource Primary}" />
+                    <Label Text="{Binding Provider.Address}" FontFamily="{StaticResource NormalFont}" FontSize="Small" TextColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <Label Text="{Binding Provider.Description}" FontFamily="{StaticResource NormalFont}" FontSize="Small" Margin="10" HorizontalOptions="FillAndExpand" />
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

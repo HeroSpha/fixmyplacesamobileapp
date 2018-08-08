@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Client.Views.ClientAddProvider" Title="Search Provider">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="ion-link" Text="link" Command="{Binding RequestCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry HorizontalOptions="FillAndExpand" Placeholder="Lookup Key" Text="{Binding LookupKey, Mode=TwoWay}"  />
+                    <icon:IconButton BackgroundColor="{StaticResource Primary}" WidthRequest="40" TextColor="White" Text="ion-search" VerticalOptions="Center" HorizontalOptions="End" Command="{Binding SearchCommand}" />
+                </StackLayout>
+                <Button Text="Scan QRCODE" Command="{Binding QRCodeCommand}" TextColor="White" BackgroundColor="{StaticResource Primary}" />
+            </StackLayout>
+            <ScrollView Grid.Row="1" IsVisible="{Binding Visible}">
+                <StackLayout >
+                    <Image Source="{Binding Provider.Logo}" Aspect="AspectFit" />
+                    <StackLayout Orientation="Horizontal">
+                        <icon:IconLabel Text="ion-android-create" TextColor="{StaticResource Primary}" VerticalOptions="CenterAndExpand" FontSize="Medium" HorizontalOptions="Start" />
+                        <Label Text="{Binding Provider.TenantName}" FontSize="Small" TextColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <icon:IconLabel Text="ion-ios-home" TextColor="{StaticResource Primary}" VerticalOptions="CenterAndExpand" FontSize="Medium" HorizontalOptions="Start" />
+                        <Label Text="{Binding Provider.Address}" FontSize="Small" TextColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <icon:IconLabel TextColor="{StaticResource Primary}" Text="ion-android-phone-portrait" VerticalOptions="CenterAndExpand" FontSize="Medium" HorizontalOptions="Start" />
+                        <Label Text="{Binding Provider.Phone}" FontSize="Small" TextColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <icon:IconLabel TextColor="{StaticResource Primary}" Text="ion-email" VerticalOptions="CenterAndExpand" FontSize="Medium" HorizontalOptions="Start" />
+                        <Label Text="{Binding Provider.Email}" TextColor="{StaticResource Primary}" FontSize="Small" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        
+                        <Label Text="{Binding Provider.Description}" TextColor="{StaticResource Primary}" FontSize="Micro" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

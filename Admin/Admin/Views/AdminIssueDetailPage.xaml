@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<icon:IconTabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:local="clr-namespace:SharedCode.Converters;assembly=Shared"
+            xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+            x:Class="Admin.Views.AdminIssueDetailPage" Title="Issue Details">
+    
+    <icon:IconTabbedPage.Children>
+        <ContentPage Title="Details" Icon="md-assignment">
+            <ScrollView>
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+                    <icon:IconLabel Grid.Row="0" VerticalOptions="CenterAndExpand" Text="{Binding Issue.Status, Converter={local:IconStatusConverter}}" Margin="5" FontSize="150"  HorizontalOptions="CenterAndExpand" TextColor="{Binding Issue.Status, Converter={local:ColorStatusConverter}}" />
+                    <ScrollView  Grid.Row="1">
+                        <StackLayout>
+                            <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="0.2" />
+                            <Label Text="{Binding Issue.Title}" FontFamily="{StaticResource LightFont}" FontSize="Medium"></Label>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Issue.Address, StringFormat='Unit : {0}'}" VerticalOptions="Center" TextColor="{StaticResource Primary}" FontSize="Small"></Label>
+                            </StackLayout>
+                            <Label Text="{Binding Issue.PostedOn, StringFormat='Posted on  {0}'}" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro"></Label>
+                            <Label Text="{Binding Issue.isResolved, StringFormat='Is resolved? : {0}'}" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro"></Label>
+                            <Label Text="{Binding DateStamp.StartDate, StringFormat='Fix date : {0}'}" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro"></Label>
+                            <StackLayout VerticalOptions="EndAndExpand">
+                                <Button Text="Create jobcard" IsVisible="{Binding IsAck}"  BackgroundColor="{StaticResource Primary}"  FontFamily="{StaticResource NormalFont}" Command="{Binding JobcardCommand}" TextColor="White" />
+                                <Button Text="Images"  BackgroundColor="{StaticResource Primary}"  FontFamily="{StaticResource NormalFont}" Command="{Binding ImagesCommand}" TextColor="White" />
+                                <Button Text="Publish"  BackgroundColor="{StaticResource Primary}"  FontFamily="{StaticResource NormalFont}" IsVisible="{Binding PublishVisible}" Command="{Binding PublishCommand}" TextColor="White" />
+                                <Button Text="Complete" IsVisible="{Binding IsResolved}"  Command="{Binding CompleteCommand}" BackgroundColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" TextColor="White" />
+                                <Button Text="Add Cost" IsVisible="{Binding IsCost}" Command="{Binding AddCostCommand}" BackgroundColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" TextColor="White" />
+                                <Button Text="Delete" BackgroundColor="{StaticResource Red}" Command="{Binding DeleteCommand}" FontFamily="{StaticResource NormalFont}" TextColor="White" />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </ScrollView>
+
+        </ContentPage>
+        <ContentPage Title="Quotations" Icon="md-account-balance-wallet">
+            <StackLayout>
+                <SearchBar Placeholder="search quotation" Text="{Binding SearchKey, Mode=TwoWay}" />
+                <ListView ItemsSource="{Binding Quotations}" SelectedItem="{Binding Quotation, Mode=TwoWay}" CachingStrategy="RecycleElement" HasUnevenRows="True" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding PriceOffered, StringFormat='R {0}'}" FontFamily="{StaticResource LightFont}" TextColor="{StaticResource Primary}" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Technicians.Name}" FontSize="Small" FontFamily="{StaticResource NormalFont}" HorizontalOptions="EndAndExpand" TextColor="{StaticResource Primary}" />
+                                    </StackLayout>
+                                    <Label Text="{Binding Description}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" TextColor="{StaticResource Primary}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+        <ContentPage Title="Technician" Icon="md-build">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <icon:IconLabel Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="150" TextColor="{StaticResource Primary}" Text="md-build"/>
+                <ScrollView  Grid.Row="1">
+                    <StackLayout>
+                        <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="0.2" />
+                        <Label Text="{Binding Technicians.Name}" FontFamily="{StaticResource LightFont}" FontSize="Medium"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Technicians.Phone, StringFormat='Phone : {0}'}" VerticalOptions="Center" TextColor="{StaticResource Primary}" FontSize="Micro"></Label>
+                        </StackLayout>
+                        <Label Text="{Binding Technicians.Email, StringFormat='Email  {0}'}" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" FontSize="Micro"></Label>
+
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </ContentPage>
+    </icon:IconTabbedPage.Children>
+    
+</icon:IconTabbedPage>

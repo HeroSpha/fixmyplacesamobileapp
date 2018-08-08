@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="Admin.Views.AdminVisitorPage" Title="Visitors">
+
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="ion-plus-round" Text="Add" Command="{Binding AddCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <SearchBar Text="{Binding SearchKey, Mode=TwoWay}" Placeholder="Search visitors" />
+            <ListView CachingStrategy="RecycleElement" HasUnevenRows="True" ItemsSource="{Binding Visitors}" SelectedItem="{Binding Visitor, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                
+                                <StackLayout Orientation="Horizontal" Margin="2">
+                                    <controls:CircleImage Source="person.png" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="50" BorderColor="{StaticResource Primary}" BorderThickness="2">
+                                        <controls:CircleImage.WidthRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android, iOS">55</On>
+                                                <On Platform="WinPhone, UWP">75</On>
+                                            </OnPlatform>
+                                        </controls:CircleImage.WidthRequest>
+                                        <controls:CircleImage.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android, iOS">55</On>
+                                                <On Platform="WinPhone, UWP">75</On>
+                                            </OnPlatform>
+                                        </controls:CircleImage.HeightRequest>
+                                    </controls:CircleImage>
+                                    <StackLayout Margin="5">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Firstname}" FontFamily="{StaticResource LightFont}" FontSize="Small" />
+                                            <Label Text="{Binding Lastname}" FontFamily="{StaticResource LightFont}" FontSize="Small"/>
+
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding DateIn, StringFormat='Date in : {0}'}" FontFamily="{StaticResource NormalFont}" HorizontalOptions="Start" TextColor="ForestGreen" FontSize="10" />
+                                            <Label Text="{Binding DateOut, StringFormat='DateOut : {0}'}" FontFamily="{StaticResource NormalFont}" HorizontalOptions="End" TextColor="Red" FontSize="10"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

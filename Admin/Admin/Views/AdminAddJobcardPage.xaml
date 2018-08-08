@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Admin.Views.AdminAddJobcardPage" Title="Add jobcard">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="ion-arrow-right-c" Text="next" Command="{Binding NextCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Job name" FontSize="Micro" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}"  />
+            <Entry Text="{Binding Name, Mode=TwoWay}"  Placeholder="Job card name" Margin="5" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+            <Label Text="Description" TextColor="{StaticResource Primary}" FontSize="Small" Margin="5"/>
+            <Editor AutoSize="TextChanges" Text="{Binding Description, Mode=TwoWay}"  Margin="5" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

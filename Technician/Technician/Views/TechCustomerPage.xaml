@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TechTechnician.Views.TechCustomerPage" Title="User">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="{StaticResource Primary}">
+                <Image Source="user.png" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" />
+            </StackLayout>
+            <StackLayout Grid.Row="1">
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <icon:IconLabel Text="md-account-circle" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                    <Label Text="{Binding Customer.Firstname}" TextColor="{StaticResource Primary}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"  Margin="10">
+                    <icon:IconLabel Text="md-account-circle" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                    <Label Text="{Binding Customer.Lastname}" TextColor="{StaticResource Primary}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"  Margin="10">
+                    <icon:IconLabel Text="md-perm-phone-msg" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                    <Label Text="{Binding Customer.Phone}" TextColor="{StaticResource Primary}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"  Margin="10">
+                    <icon:IconLabel Text="md-email" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                    <Label Text="{Binding Customer.Email}" TextColor="{StaticResource Primary}"/>
+                </StackLayout>
+               
+                <!--<Button Text="Start chat" BackgroundColor="{StaticResource Primary}" VerticalOptions="EndAndExpand" TextColor="White"></Button>-->
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

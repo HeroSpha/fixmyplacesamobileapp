@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Technician.Views.TechAddQuotation" Title="Post Quotation">
+    <ContentPage.Content>
+        <StackLayout Margin='10'>
+            <StackLayout  VerticalOptions="Start">
+                <Label Text="Item cost" FontSize="Micro" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}"/>
+                <Entry Placeholder="R0.00" Text="{Binding PriceOffered, Mode=TwoWay}" FontSize="Small" FontFamily="{StaticResource NormalFont}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <Label Text="Item description" FontSize="Micro" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}"/>
+            <Editor  Text="{Binding Description, Mode=TwoWay}" HorizontalOptions="FillAndExpand" FontSize="Small" FontFamily="{StaticResource NormalFont}" />
+            <Button Text="Post quotation" CornerRadius="20" Command="{Binding PostCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

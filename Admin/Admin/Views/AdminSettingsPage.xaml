@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             x:Class="Admin.Views.AdminSettingsPage" Title="Settings">
+    <ContentPage.Content>
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="{StaticResource Primary}">
+                <Label Text="{Binding Role}" HorizontalOptions="CenterAndExpand" FontSize="Medium" TextColor="White"></Label>
+                <Image Source="user.png" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" />
+
+            </StackLayout>
+            <ScrollView Grid.Row="1">
+                <StackLayout  BackgroundColor="{StaticResource Red}" >
+                    <Label Text="{Binding Provider.TenantName}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Medium" TextColor="White"></Label>
+                    <Label Text="{Binding Provider.Email}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Small" TextColor="White"></Label>
+                    <Label Text="{Binding Provider.Address}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Small" TextColor="White"></Label>
+                    <Label Text="{Binding Provider.Phone}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Small" TextColor="White"></Label>
+                    <Label Text="{Binding Provider.Description}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Micro" TextColor="White"></Label>
+                </StackLayout>
+            </ScrollView>
+
+            <ListView ItemsSource="{Binding Items}"  Margin="10"  Grid.Row="2" HasUnevenRows="True" SeparatorColor="{StaticResource Primary}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="10">
+                                <icon:IconImage IconSize="30" Icon="{Binding Icon}" IconColor="{StaticResource Primary}" VerticalOptions="Center"/>
+                                <Label Text="{Binding Name}" TextColor="{StaticResource Primary}" FontSize="Small" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

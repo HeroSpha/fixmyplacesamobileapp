@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TechTechnician.Views.TechJobItemDatesPage" Title="Job item date">
+    <ContentPage.ToolbarItems>
+
+        <icon:IconToolbarItem IconColor="White" Icon="ion-trash-b" IsVisible="{Binding CanManipulate}"  Text="delete date"  Command="{Binding DeleteCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+        <icon:IconToolbarItem IconColor="White" Icon="ion-edit" IsVisible="{Binding CanManipulate}"  Text="update date"  Command="{Binding UpdateCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+        <icon:IconToolbarItem IconColor="White" Icon="ion-plus-round" IsVisible="{Binding IsVisible}"  Text="add date"  Command="{Binding AddDateCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Margin="10" Text="{Binding DateStamp.Title, Mode=TwoWay}" HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource LightFont}" FontSize="Medium" />
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <icon:IconLabel Text="fa-calendar" IsVisible="{Binding CanManipulate}" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{StaticResource Primary}" />
+                <Label   Text="{Binding DateStamp.StartDate, StringFormat='Start Date {0:MM/dd/yyyy}', Mode=TwoWay}" FontFamily="{StaticResource NormalFont}" FontSize="Small" TextColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <icon:IconLabel Text="fa-calendar" IsVisible="{Binding CanManipulate}" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{StaticResource Primary}"  />
+                <Label  Text="{Binding DateStamp.EndDate, StringFormat='End Date {0:MM/dd/yyyy}', Mode=TwoWay}" FontFamily="{StaticResource NormalFont}" FontSize="Small" TextColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <Label  Margin="10" Text="{Binding DateStamp.Description, Mode=TwoWay}" FontSize="Micro" FontFamily="{StaticResource NormalFont}" />
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

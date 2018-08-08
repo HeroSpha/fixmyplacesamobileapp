@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+              xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TechTechnician.Views.TechRegisterPage" Title="Register">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem IconColor="White" Icon="ion-link" Text="link" Command="{Binding RegisterCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <StackLayout>
+                <Label Text="Technician name" FontSize="Small" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" />
+                <Entry Placeholder="XYZ Plumbers" Text="{Binding Name}" PlaceholderColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Email" FontSize="Small" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" />
+                <Entry Placeholder="technician@xyz.co.za" PlaceholderColor="{StaticResource Primary}" Text="{Binding Email}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Phone number" FontSize="Small" TextColor="{StaticResource Primary}" FontFamily="{StaticResource NormalFont}" />
+                <Entry Placeholder="0616050130" FontFamily="{StaticResource NormalFont}" PlaceholderColor="{StaticResource Primary}" Text="{Binding Contact}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Description" FontSize="Small" FontFamily="{StaticResource NormalFont}"/>
+                <Editor   Text="{Binding Description}" HeightRequest="100" FontFamily="{StaticResource NormalFont}"/>
+            </StackLayout>
+            <ListView ItemsSource="{Binding CategoryList}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="5">
+                                <Switch IsToggled="{Binding IsSelected, Mode=TwoWay}" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                <Label Text="{Binding CategoryName}" FontFamily="{StaticResource NormalFont}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

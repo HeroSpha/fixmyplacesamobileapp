@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:icon="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TechTechnician.Views.TechAddCostPage" Title="Add Cost">
+    <ContentPage.ToolbarItems>
+        <icon:IconToolbarItem Text="Save" IconColor="White" Icon="fa-save"  Command="{Binding SaveCommand}">
+            <icon:IconToolbarItem.IconColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android">#ffffff</On>
+                </OnPlatform>
+            </icon:IconToolbarItem.IconColor>
+        </icon:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Price" />
+            <Entry Placeholder="0.00" Text="{Binding Price, Mode=TwoWay}" VerticalOptions="Center" WidthRequest="150"  />
+            <Label Text="Price description" />
+            <Editor HeightRequest="100" Text="{Binding Description, Mode=TwoWay}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
