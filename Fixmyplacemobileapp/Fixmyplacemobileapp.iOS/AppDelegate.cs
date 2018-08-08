@@ -25,7 +25,7 @@ namespace Fixmyplacemobileapp.iOS
               .With(new Plugin.Iconize.Fonts.FontAwesomeModule());
             global::Xamarin.Forms.Forms.Init();
             ImageCircleRenderer.Init();
-            OneSignal.Current.StartInit("d151efc2-b67b-47ec-9dbb-a6b5cec315d1")
+            OneSignal.Current.StartInit("88b69634-8970-4f5d-92d4-69f696d697fd")
                   .EndInit();
             FormsPlugin.Iconize.iOS.IconControls.Init();
             LoadApplication(new App(new iOSInitializer()));
