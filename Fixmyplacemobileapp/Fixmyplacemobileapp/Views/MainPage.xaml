@@ -27,7 +27,7 @@
                     <StackLayout Margin="10, 40, 10,10" HorizontalOptions="CenterAndExpand" Orientation="Horizontal"  VerticalOptions="Start">
                         <Image Source="androidwhiteblack.png" HeightRequest="80" Aspect="AspectFit" />
                         <BoxView BackgroundColor="White"  WidthRequest="0.3" />
-                        <Label Text="Kagiso House"  FontFamily="{StaticResource LightFont}" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" >
+                        <Label Text="FixmyPlace"  FontFamily="{StaticResource LightFont}" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" >
                           
                         </Label>
 
@@ -74,9 +74,11 @@
             </Grid>
             <StackLayout Grid.Row="1" Margin="10">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
-                    <Label Text="Powered by" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" />
-                    <Label Text="FixmyPlace" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Red}">
-                      
+                    <Label Text="Don't have account?" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Primary}" />
+                    <Label Text="Create account" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource Red}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SignUpCommand}" />
+                        </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
             </StackLayout>

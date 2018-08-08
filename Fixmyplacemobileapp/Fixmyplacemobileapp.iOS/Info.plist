@@ -40,11 +40,11 @@
 	<key>MinimumOSVersion</key>
 	<string>7.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Kagiso House</string>
+	<string>FixmyPlace</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.kagisohouse.co.za</string>
+	<string>com.fixmyplacesa.com</string>
 	<key>CFBundleVersion</key>
-	<string>14</string>
+	<string>1</string>
 	<key>CFBundleIcons</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
@@ -83,6 +83,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Media.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleShortVersionString</key>
-	<string>14</string>
+	<string>1.0</string>
 </dict>
 </plist>
