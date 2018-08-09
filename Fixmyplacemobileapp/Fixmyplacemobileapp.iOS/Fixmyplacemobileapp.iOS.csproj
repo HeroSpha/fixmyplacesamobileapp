@@ -31,6 +31,7 @@
     <CodesignProvision />
     <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
     <MtouchFastDev>true</MtouchFastDev>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
