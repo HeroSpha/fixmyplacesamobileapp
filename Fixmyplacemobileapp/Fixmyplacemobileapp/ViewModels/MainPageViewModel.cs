@@ -2,17 +2,15 @@
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json.Linq;
 using Fixmyplacemobileapp.Helpers;
 using Flurl.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNet.SignalR.Client.Hubs;
-using System.Text;
 using Prism.Modularity;
 using Flurl;
+using Microsoft.AppCenter.Analytics;
 
 namespace Fixmyplacemobileapp.ViewModels
 {
@@ -106,10 +104,11 @@ namespace Fixmyplacemobileapp.ViewModels
                     var user = await ServerPath.Path
                         .AppendPathSegment("/account/username")
                         .WithOAuthBearerToken(App.Access_Token).GetJsonAsync();
+
                     if (user != null)
                     {
-                        App.UserId = user.id;
 
+                        App.UserId = user.id;
                         Settings.UserId = user.id;
                         Settings.AccessToken = App.Access_Token;
                         Settings.Username = Username;
@@ -132,13 +131,6 @@ namespace Fixmyplacemobileapp.ViewModels
                         {
                            await Acr.UserDialogs.UserDialogs.Instance.AlertAsync("Role not found");
                         }
-
-
-                        //Get role here 
-                        //Settings.UserId = App.UserId;
-                        //Settings.AccessToken = App.Access_Token;
-                        //Settings.Username = Username;
-                        //Settings.Password = Password;
                     }
                     else
                     {

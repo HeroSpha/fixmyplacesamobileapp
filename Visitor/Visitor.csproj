@@ -11,6 +11,7 @@
     <PackageReference Include="Flurl.Http" Version="2.3.2" />
     <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.3.0" />
     <PackageReference Include="Splat" Version="4.0.2" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.5.0" />
     <PackageReference Include="Xam.FormsPlugin.Iconize" Version="1.0.10" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />

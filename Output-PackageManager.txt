@@ -1,113 +1,24 @@
-﻿Restoring packages for G:\New folder\Fixmyplacemobileapp\Client\Client\Client.csproj...
-Restoring packages for G:\New folder\Fixmyplacemobileapp\Admin\Admin\Admin.csproj...
-Restoring packages for G:\New folder\Fixmyplacemobileapp\Technician\Technician\Technician.csproj...
-
-
-Attempting to gather dependency information for package 'CommonServiceLocator.2.0.3' with respect to project 'Fixmyplacemobileapp.iOS', targeting 'Xamarin.iOS,Version=v1.0'
-Resolving actions to uninstall package 'CommonServiceLocator.2.0.3'
-Resolved actions to uninstall package 'CommonServiceLocator.2.0.3'
-
-
-Attempting to gather dependency information for package 'CommonServiceLocator.2.0.3' with respect to project 'Fixmyplacemobileapp.Droid', targeting 'MonoAndroid,Version=v8.1'
-Resolving actions to uninstall package 'CommonServiceLocator.2.0.3'
-Resolved actions to uninstall package 'CommonServiceLocator.2.0.3'
-Restoring packages for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.csproj...
+﻿Restoring packages for G:\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.csproj...
+  GET https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/index.json
+  OK https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/index.json 1268ms
+  GET https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/4.5.0/system.reflection.typeextensions.4.5.0.nupkg
+  OK https://api.nuget.org/v3-flatcontainer/system.reflection.typeextensions/4.5.0/system.reflection.typeextensions.4.5.0.nupkg 1102ms
+Installing System.Reflection.TypeExtensions 4.5.0.
+Installing NuGet package System.Reflection.TypeExtensions 4.5.0.
 Committing restore...
-Writing lock file to disk. Path: G:\New folder\Fixmyplacemobileapp\Client\Client\obj\project.assets.json
-Restore completed in 202.99 ms for G:\New folder\Fixmyplacemobileapp\Client\Client\Client.csproj.
-Successfully uninstalled 'CommonServiceLocator 2.0.3' from Client
-Restoring packages for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.csproj...
-Restoring packages for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\project.json...
-Committing restore...
-Assets file has not changed. Skipping assets file writing. Path: G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\obj\project.assets.json
-Restore completed in 373.17 ms for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.csproj.
-Committing restore...
-Writing lock file to disk. Path: G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\project.lock.json
-Restore completed in 812.16 ms for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\Fixmyplacemobileapp.UWP.csproj.
-
-NuGet Config files used:
-    C:\Users\DigiHelp IT\AppData\Roaming\NuGet\NuGet.Config
-    C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
-
-Feeds used:
-    https://api.nuget.org/v3/index.json
-    C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
-Executing nuget actions took 5.81 sec
-Committing restore...
-Writing lock file to disk. Path: G:\New folder\Fixmyplacemobileapp\Admin\Admin\obj\project.assets.json
-Restore completed in 217.45 ms for G:\New folder\Fixmyplacemobileapp\Admin\Admin\Admin.csproj.
-Successfully uninstalled 'CommonServiceLocator 2.0.3' from Admin
-Committing restore...
-Assets file has not changed. Skipping assets file writing. Path: G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\obj\project.assets.json
-Restoring packages for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\project.json...
-Restore completed in 4.66 ms for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.csproj.
-Committing restore...
-Writing lock file to disk. Path: G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\project.lock.json
-Restore completed in 1.05 sec for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\Fixmyplacemobileapp.UWP.csproj.
-
-Time Elapsed: 00:00:09.0778701
+Writing lock file to disk. Path: G:\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\obj\project.assets.json
+Restore completed in 5.33 sec for G:\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.csproj.
+Successfully installed 'System.Reflection.TypeExtensions 4.5.0' to Fixmyplacemobileapp
+Executing nuget actions took 3.64 sec
+Time Elapsed: 00:00:09.2503368
 ========== Finished ==========
 
-NuGet Config files used:
-    C:\Users\DigiHelp IT\AppData\Roaming\NuGet\NuGet.Config
-    C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
-
-Feeds used:
-    https://api.nuget.org/v3/index.json
-    C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
-Executing nuget actions took 11.51 sec
-Committing restore...
-Writing lock file to disk. Path: G:\New folder\Fixmyplacemobileapp\Technician\Technician\obj\project.assets.json
-Restore completed in 202.92 ms for G:\New folder\Fixmyplacemobileapp\Technician\Technician\Technician.csproj.
-Successfully uninstalled 'CommonServiceLocator 2.0.3' from Technician
-Committing restore...
-Restoring packages for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\project.json...
-Assets file has not changed. Skipping assets file writing. Path: G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\obj\project.assets.json
-Restore completed in 5.17 ms for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.csproj.
-Committing restore...
-Time Elapsed: 00:00:07.1248364
+Time Elapsed: 00:00:00.2116301
 ========== Finished ==========
 
-Writing lock file to disk. Path: G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\project.lock.json
-Restore completed in 1.66 sec for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\Fixmyplacemobileapp.UWP.csproj.
-
-NuGet Config files used:
-    C:\Users\DigiHelp IT\AppData\Roaming\NuGet\NuGet.Config
-    C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
-
-Feeds used:
-    https://api.nuget.org/v3/index.json
-    C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
-Executing nuget actions took 11 sec
-Removed package 'CommonServiceLocator.2.0.3' from 'packages.config'
-Successfully uninstalled 'CommonServiceLocator.2.0.3' from Fixmyplacemobileapp.iOS
-Time Elapsed: 00:00:04.6869536
+Time Elapsed: 00:00:02.2106817
 ========== Finished ==========
 
-Executing nuget actions took 7.47 sec
-Removed package 'CommonServiceLocator.2.0.3' from 'packages.config'
-Successfully uninstalled 'CommonServiceLocator.2.0.3' from Fixmyplacemobileapp.Droid
-Removing package 'CommonServiceLocator.2.0.3' from folder 'G:\New folder\Fixmyplacemobileapp\packages'
-Removed package 'CommonServiceLocator.2.0.3' from folder 'G:\New folder\Fixmyplacemobileapp\packages'
-Executing nuget actions took 6.34 sec
-Committing restore...
-Writing lock file to disk. Path: G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\obj\project.assets.json
-Restore completed in 192.24 ms for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.csproj.
-Committing restore...
-Assets file has not changed. Skipping assets file writing. Path: G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\project.lock.json
-Restore completed in 34.07 ms for G:\New folder\Fixmyplacemobileapp\Fixmyplacemobileapp\Fixmyplacemobileapp.UWP\Fixmyplacemobileapp.UWP.csproj.
-
-NuGet Config files used:
-    C:\Users\DigiHelp IT\AppData\Roaming\NuGet\NuGet.Config
-    C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
-
-Feeds used:
-    https://api.nuget.org/v3/index.json
-    C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
-Executing nuget actions took 434.09 ms
-Time Elapsed: 00:00:44.3438600
-========== Finished ==========
-
-Time Elapsed: 00:00:05.0281236
+Time Elapsed: 00:00:01.2443306
 ========== Finished ==========
 

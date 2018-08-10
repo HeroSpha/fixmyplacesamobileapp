@@ -26,6 +26,7 @@
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.2" />
     <PackageReference Include="Splat" Version="4.0.2" />
     <PackageReference Include="System.Reflection" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.5.0" />
     <PackageReference Include="Unity" Version="5.8.6" />
     <PackageReference Include="Xam.FormsPlugin.Iconize" Version="1.0.10" />
     <PackageReference Include="Xam.Plugin.ExternalMaps" Version="4.0.1" />
