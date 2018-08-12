@@ -15,7 +15,9 @@ using Prism.Ioc;
 using Prism;
 using Com.OneSignal;
 using Com.OneSignal.Abstractions;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Fixmyplacemobileapp
 {
     public partial class App : PrismApplication

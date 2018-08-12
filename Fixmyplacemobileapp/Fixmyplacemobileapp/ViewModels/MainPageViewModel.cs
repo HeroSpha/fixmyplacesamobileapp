@@ -107,7 +107,6 @@ namespace Fixmyplacemobileapp.ViewModels
 
                     if (user != null)
                     {
-
                         App.UserId = user.id;
                         Settings.UserId = user.id;
                         Settings.AccessToken = App.Access_Token;
