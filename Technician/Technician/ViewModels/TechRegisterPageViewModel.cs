@@ -164,15 +164,10 @@ namespace TechTechnician.ViewModels
             {
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading");
                 var categories = await ServerPath.Path
-                    .AppendPathSegment("/api/categories/getcategories/" + TechnicianModule.TenantName).WithOAuthBearerToken(TechnicianModule.AccessToken).GetJsonListAsync();
-                if (categories != null)
-                {
-                    CategoryList = categories.Select(category => new Category
-                    {
-                        CategoryId = category.categoryId,
-                        CategoryName = category.categoryName
-                    }).ToList();
-                }
+                    .AppendPathSegment("/api/categories/getcategories/" + TechnicianModule.TenantName)
+                    .WithOAuthBearerToken(TechnicianModule.AccessToken)
+                    .GetJsonAsync<List<Category>>();
+                CategoryList = new List<Category>(categories);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

@@ -52,20 +52,10 @@ namespace Visitor.ViewModels
                 var tenants = await ServerPath.Path
                     .AppendPathSegment("/api/customers/getallcustomers/" + VisitorModule.TenantName)
                     .WithOAuthBearerToken(VisitorModule.AccessToken)
-                    .GetJsonListAsync();
-                if (tenants != null)
-                {
-                    var list = tenants.Select(tenant => new Customer
-                    {
-                        CustomerId = tenant.customerId,
-                        Firstname = tenant.firstName,
-                        Lastname = tenant.lastName,
-                        Unit = tenant.unit
-                    }).ToList();
-                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
-                    Tenants = new ObservableCollection<Customer>(list);
-                    Tenant = null;
-                }
+                    .GetJsonAsync<List<Customer>>();
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
+                Tenants = new ObservableCollection<Customer>(tenants);
+                Tenant = null;
             }
             catch (Exception ex)
             {

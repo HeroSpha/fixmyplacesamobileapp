@@ -5,6 +5,7 @@ using Prism.Navigation;
 using SharedCode.Helpers;
 using SharedCode.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -64,29 +65,10 @@ namespace Admin.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading");
                 var providers = await ServerPath.Path
                     .AppendPathSegment("/api/propertymanager/getmanagerproperties/" + AdminModule.UserId)
-                    .WithOAuthBearerToken(AdminModule.AccessToken).GetJsonListAsync();
-                if (providers != null)
-                {
-                    var list = providers.Select(property => new Property
-                    {
-                        TenantName = property.tenantName,
-                        IsPublic = property.isPublic,
-                        PropertyId = property.propertyId,
-                        Address = property.address,
-                        Description = property.description,
-                        LookupId = property.lookupId,
-                        Registrationid = property.registrationId,
-                        Mac = property.mac,
-                        Android = property.android,
-                        Windows = property.windows,
-                        IsActive = property.isActive,
-                        PoolName = property.poolName,
-                        Parent = new Shared.Models.Parent { Logo = property.parent.logo}
-                    }).ToList();
-                    Properties = new ObservableCollection<Property>(list);
-                    _placeholders = new ObservableCollection<Property>(Properties);
-
-                }
+                    .WithOAuthBearerToken(AdminModule.AccessToken)
+                    .GetJsonAsync<List<Property>>();
+                Properties = new ObservableCollection<Property>(providers);
+                _placeholders = new ObservableCollection<Property>(Properties);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

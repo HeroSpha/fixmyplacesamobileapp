@@ -101,22 +101,10 @@ namespace Client.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading tenant providers...");
                 var providers = await ServerPath.Path
                     .AppendPathSegment("/api/providers/getcustproviders/" + ClientModule.UserId)
-                    .WithOAuthBearerToken(ClientModule.AccessToken).GetJsonListAsync();
-                if (providers != null)
-                {
-                    var list = providers.Select(provider => new Property
-                    {
-                        TenantName = provider.tenantName,
-                      
-                        Address = provider.address,
-                        Description = provider.description,
-                         Parent = new Shared.Models.Parent {  Logo = provider.parent.logo},
-                        LookupId = provider.lookupId
-                    }).ToList();
-                    Providers = new ObservableCollection<Property>(list);
-                    _placeHolders = new ObservableCollection<Property>(Providers);
-                   
-                }
+                    .WithOAuthBearerToken(ClientModule.AccessToken)
+                    .GetJsonAsync<List<Property>>();
+                Providers = new ObservableCollection<Property>(providers);
+                _placeHolders = new ObservableCollection<Property>(Providers);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

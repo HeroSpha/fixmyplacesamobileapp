@@ -111,20 +111,11 @@ namespace Admin.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading...");
                 var providers = await ServerPath.Path
                     .AppendPathSegment( "/api/itemcost/getjobitemcost/" + AdminModule.TenantName + "/" + Issue.IssueId)
-                    .WithOAuthBearerToken(AdminModule.AccessToken).GetJsonListAsync();
-                if (providers != null)
-                {
-                    var list = providers.Select(jobitemcost => new JobItemCost
-                    {
-                        Cost = jobitemcost.cost,
-                        Description = jobitemcost.description,
-                        CostId = jobitemcost.costId,
-                        JobItemId = jobitemcost.jobItemId
-                    }).ToList();
-                    JobItemCosts = new ObservableCollection<JobItemCost>(list);
-                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
-
-                }
+                    .WithOAuthBearerToken(AdminModule.AccessToken)
+                    .GetJsonAsync<List<JobItemCost>>();
+                
+                JobItemCosts = new ObservableCollection<JobItemCost>(providers);
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)
             {

@@ -5,6 +5,7 @@ using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Shared.Events;
+using Shared.Models;
 using SharedCode.Helpers;
 using System;
 using System.Collections.Generic;
@@ -74,10 +75,10 @@ namespace Visitor.ViewModels
                 var property = await ServerPath.Path
                     .AppendPathSegment("/api/security/get/" + VisitorModule.UserId)
                     .WithOAuthBearerToken(VisitorModule.AccessToken)
-                    .GetJsonAsync();
+                    .GetJsonAsync<Security>();
                 if (property != null)
                 {
-                    VisitorModule.TenantName = property.property.tenantName;
+                    VisitorModule.TenantName = property.Property.TenantName;
                 }
 
             }
@@ -95,23 +96,8 @@ namespace Visitor.ViewModels
                 var visitors = await ServerPath.Path
                     .AppendPathSegment("/api/visitors/getvisitors/" + VisitorModule.TenantName)
                     .WithOAuthBearerToken(VisitorModule.AccessToken)
-                    .GetJsonListAsync();
-                if (visitors != null)
-                {
-                    var list = visitors.Select(visitor => new Shared.Models.Visitor
-                    {
-                        Id = visitor.id,
-                        Firstname = visitor.firstname,
-                        Lastname = visitor.lastname,
-                        IdNumber = visitor.idNumber,
-                        DateIn = visitor.dateIn,
-                        DateOut = visitor.dateOut,
-                        PhoneNumber = visitor.phoneNumber,
-                        CustomerId = visitor.customerId,
-                        Customer = new SharedCode.Models.Customer { Firstname = visitor.customer.firstname, Lastname = visitor.customer.lastname }
-                    });
-                    Visitors = new ObservableCollection<Shared.Models.Visitor>(list);
-                }
+                    .GetJsonAsync<List<Shared.Models.Visitor>>();
+                Visitors = new ObservableCollection<Shared.Models.Visitor>(visitors);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

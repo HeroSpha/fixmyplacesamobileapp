@@ -88,25 +88,9 @@ namespace Client.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading Issues");
                 var issues = await ServerPath.Path
                     .AppendPathSegment("/api/issues/getcustomerissues/" + ClientModule.Tenant + "/" + ClientModule.UserId)
-                    .GetJsonListAsync();
+                    .GetJsonAsync<List<Issue>>();
 
-                var _issues = issues.Select(issue => new Issue
-                {
-                    IssueId = issue.issueId,
-                    Title = issue.title,
-                    Description = issue.description,
-                    Address = issue.address,
-                    Status = issue.status,
-                    CategoryId = issue.categoryId,
-                    DateResolved = issue.dateResolved,
-                    ImageUrl1 = issue.imageUrl1,
-                    ImageUrl2 = issue.imageUrl2,
-                    ImageUrl3 = issue.imageUrl3,
-                    IsResolved = issue.isResolved,
-                    JobPerformed = issue.jobPerformed,
-                    PostedOn = issue.postedOn
-                }).ToList();
-                Issues = new ObservableCollection<Issue>(_issues);
+                Issues = new ObservableCollection<Issue>(issues);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

@@ -91,11 +91,11 @@ namespace TechTechnician.ViewModels
                 var dates = await ServerPath.Path
                     .AppendPathSegment("/api/jobitems/techdates/" + TechnicianModule.TenantName + "/" + TechnicianModule.UserId)
                     .WithOAuthBearerToken(TechnicianModule.AccessToken)
-                    .GetJsonListAsync();
+                    .GetJsonAsync<List<DateStamp>>();
                 if (dates != null)
                 {
-                    Dates = dates;
-                    var selectedDates = dates.Select(date => new SpecialDate(date.startDate)
+                    //Dates = dates;
+                    var selectedDates = dates.Select(date => new SpecialDate(date.StartDate)
                     {
                         BackgroundColor = Color.DarkRed,
                         Selectable = true,

@@ -80,19 +80,11 @@ namespace Admin.ViewModels
 
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading notifications");
                 var notifications = await ServerPath.Path
-                    .AppendPathSegment("/api/notications/getnotifications/" + AdminModule.TenantName).WithOAuthBearerToken(AdminModule.AccessToken).GetJsonListAsync();
-                if (notifications != null)
-                {
-                    var list = notifications.Select(notification => new Notification
-                    {
-                        Title = notification.title,
-                        Message = notification.message,
-                        Priority = notification.priority,
-                        PostedOn = notification.postedOn
-                    }).ToList();
-                    Notifications = new ObservableCollection<Notification>(list);
-                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
-                }
+                    .AppendPathSegment("/api/notications/getnotifications/" + AdminModule.TenantName)
+                    .WithOAuthBearerToken(AdminModule.AccessToken)
+                    .GetJsonAsync<List<Notification>>();
+                Notifications = new ObservableCollection<Notification>(notifications);
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
 
             }
             catch (Exception ex)

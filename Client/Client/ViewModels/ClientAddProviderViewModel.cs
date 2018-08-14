@@ -165,19 +165,12 @@ namespace Client.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Searching...");
 
                 var provider = await ServerPath.Path
-                    .AppendPathSegment("/api/properties/getproprty/" + LookupKey).WithOAuthBearerToken(ClientModule.AccessToken).GetJsonAsync();
+                    .AppendPathSegment("/api/properties/getproprty/" + LookupKey)
+                    .WithOAuthBearerToken(ClientModule.AccessToken)
+                    .GetJsonAsync<Property>();
                 if (provider != null)
                 {
-                    Provider = new Property
-                    {
-                        PropertyId = provider.propertyId,
-                        TenantName = provider.tenantName,
-                        Address = provider.address,
-                        Description = provider.description,
-                        Parent = new Shared.Models.Parent { Logo = provider.parent.logo },
-                        Setting = new Shared.Models.Setting { ExternalTenantAccount = provider.setting.externalTenantAccount }
-
-                    };
+                    Provider = provider;
 
                     Acr.UserDialogs.UserDialogs.Instance.HideLoading(); ;
                 }

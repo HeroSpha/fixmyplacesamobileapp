@@ -91,15 +91,9 @@ namespace Admin.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading categories");
                 var categories = await ServerPath.Path
                     .AppendPathSegment("/api/categories/getcategories/" + AdminModule.TenantName)
-                    .WithOAuthBearerToken(AdminModule.AccessToken).GetJsonListAsync();
-                if (categories != null)
-                {
-                    CategoryList = categories.Select(category => new Category
-                    {
-                        CategoryId = category.categoryId,
-                        CategoryName = category.categoryName
-                    }).ToList();
-                }
+                    .WithOAuthBearerToken(AdminModule.AccessToken)
+                    .GetJsonAsync<List<Category>>();
+                CategoryList = new List<Category>(categories);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
 
             }
@@ -118,7 +112,9 @@ namespace Admin.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Logging Issue");
 
                 var post = await ServerPath.Path
-                    .AppendPathSegment("/api/issues/addissuemobile/" + AdminModule.TenantName).WithOAuthBearerToken(AdminModule.AccessToken).PostJsonAsync(new
+                    .AppendPathSegment("/api/issues/addissuemobile/" + AdminModule.TenantName)
+                    .WithOAuthBearerToken(AdminModule.AccessToken)
+                    .PostJsonAsync(new
                 {
                     Title,
                     Description,

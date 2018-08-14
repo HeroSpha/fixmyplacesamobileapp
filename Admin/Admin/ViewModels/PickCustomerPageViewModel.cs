@@ -66,21 +66,11 @@ namespace Admin.ViewModels
                 var tenants = await ServerPath.Path
                     .AppendPathSegment("/api/customers/getallcustomers/" + AdminModule.TenantName)
                     .WithOAuthBearerToken(AdminModule.AccessToken)
-                    .GetJsonListAsync();
-                if (tenants != null)
-                {
-                    var list = tenants.Select(tenant => new Customer
-                    {
-                        CustomerId = tenant.customerId,
-                        Firstname = tenant.firstName,
-                        Lastname = tenant.lastName,
-                        Unit = tenant.unit
-                    }).ToList();
-                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
-                    Tenants = new ObservableCollection<Customer>(list);
-                    _tenants = new ObservableCollection<Customer>(Tenants);
-                    Tenant = null;
-                }
+                    .GetJsonAsync<List<Customer>>();
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
+                Tenants = new ObservableCollection<Customer>(tenants);
+                _tenants = new ObservableCollection<Customer>(Tenants);
+                Tenant = null;
             }
             catch (Exception ex)
             {

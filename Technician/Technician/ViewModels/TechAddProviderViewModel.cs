@@ -172,19 +172,10 @@ namespace TechTechnician.ViewModels
                 var provider = await ServerPath.Path
                     .AppendPathSegment("/api/properties/getproprty/" + LookupKey)
                     .WithOAuthBearerToken(TechnicianModule.AccessToken)
-                    .GetJsonAsync();
+                    .GetJsonAsync<Property>();
                 if (provider != null)
                 {
-                    Provider = new Property
-                    {
-                        PropertyId = provider.propertyId,
-                        TenantName = provider.tenantName,
-                        Address = provider.address,
-                        Description = provider.description,
-                        Parent = new Shared.Models.Parent {  Logo = provider.parent.logo},
-                        Setting = new Shared.Models.Setting { ExternalTechAccount = provider.setting.externalTechAccount}
-
-                    };
+                    Provider = provider;
 
                     Acr.UserDialogs.UserDialogs.Instance.HideLoading();
                 }

@@ -124,14 +124,16 @@ namespace TechTechnician.ViewModels
                 DateStamp _stamp = new DateStamp();
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Get date");
                 var result = await ServerPath.Path
-                    .AppendPathSegment("/api/calendar/jobitem/" + TechnicianModule.TenantName + "/" + Issue.IssueId).WithOAuthBearerToken(TechnicianModule.AccessToken).GetJsonAsync();
+                    .AppendPathSegment("/api/calendar/jobitem/" + TechnicianModule.TenantName + "/" + Issue.IssueId)
+                    .WithOAuthBearerToken(TechnicianModule.AccessToken)
+                    .GetJsonAsync<DateStamp>();
                 if (result != null)
                 {
-                    _stamp.DateStampId = result.dateStampId;
-                    _stamp.Description = result.description;
-                    _stamp.EndDate = result.endDate;
-                    _stamp.StartDate = result.startDate;
-                    _stamp.Title = result.title;
+                    _stamp.DateStampId = result.DateStampId;
+                    _stamp.Description = result.Description;
+                    _stamp.EndDate = result.EndDate;
+                    _stamp.StartDate = result.StartDate;
+                    _stamp.Title = result.Title;
 
                     DateStamp = _stamp;
                     Acr.UserDialogs.UserDialogs.Instance.HideLoading();

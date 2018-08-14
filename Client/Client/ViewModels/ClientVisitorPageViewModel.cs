@@ -150,30 +150,6 @@ namespace Client.ViewModels
         {
             await _navigationService.NavigateAsync("ClientAddVisitor");
         }
-        private async void GetDepartment()
-        {
-            try
-            {
-                Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading visitors");
-                var departments = await ServerPath.Path
-                    .AppendPathSegment("/api/department/getdepartments/" + ClientModule.Tenant)
-                    .WithOAuthBearerToken(ClientModule.AccessToken)
-                    .GetJsonListAsync();
-                if(departments != null)
-                {
-                    var list = departments.Select(department => new Department
-                    {
-                        Name = department.name,
-                        DepartmentId = department.departmentId
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new ApplicationException(ex.Message);
-            }
-        }
 
         private async void GetVisitors()
         {
@@ -183,22 +159,9 @@ namespace Client.ViewModels
                 var visitors = await ServerPath.Path
                     .AppendPathSegment("/api/visitors/getcustomervisitors/" + ClientModule.Tenant + "/" + ClientModule.UserId)
                     .WithOAuthBearerToken(ClientModule.AccessToken)
-                    .GetJsonListAsync();
-                if (visitors != null)
-                {
-                    var list = visitors.Select(visitor => new Shared.Models.Visitor
-                    {
-                        Id = visitor.id,
-                        Firstname = visitor.firstname,
-                        Lastname = visitor.lastname,
-                        IdNumber = visitor.idNumber,
-                        DateIn = visitor.dateIn,
-                        DateOut = visitor.dateOut,
-                        PhoneNumber = visitor.phoneNumber,
-                        CustomerId = visitor.customerId
-                    });
-                    Visitors = new ObservableCollection<Shared.Models.Visitor>(list);
-                }
+                    .GetJsonAsync<List<Visitor>>();
+               
+                Visitors = new ObservableCollection<Shared.Models.Visitor>(visitors);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

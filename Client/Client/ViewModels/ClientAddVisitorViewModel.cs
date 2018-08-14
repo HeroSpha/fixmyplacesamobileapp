@@ -154,16 +154,9 @@ namespace Client.ViewModels
                 var departments = await ServerPath.Path
                     .AppendPathSegment("/api/department/getdepartments/" + ClientModule.Tenant)
                     .WithOAuthBearerToken(ClientModule.AccessToken)
-                    .GetJsonListAsync();
-                if (departments != null)
-                {
-                    var list = departments.Select(department => new Department
-                    {
-                        Name = department.name,
-                        DepartmentId = department.departmentId
-                    });
-                    Departments = new ObservableCollection<Department>(list);
-                }
+                    .GetJsonAsync<List<Department>>();
+                
+                Departments = new ObservableCollection<Department>(departments);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

@@ -47,17 +47,10 @@ namespace Admin.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading");
                 var issues = await ServerPath.Path
                     .AppendPathSegment("/api/issues/getloggedissues/" + AdminModule.TenantName)
-                    .WithOAuthBearerToken(AdminModule.AccessToken).GetJsonListAsync();
-                if (issues != null)
-                {
-                    var loggedIssues = issues.Select(issue => new Issue
-                    {
-                        IssueId = issue.issueId,
-                        Title = issue.title,
-                        Category = new Category { CategoryName = issue.category.categoryName}
-                    });
-                    Issues = new ObservableCollection<Issue>(loggedIssues);
-                }
+                    .WithOAuthBearerToken(AdminModule.AccessToken)
+                    .GetJsonAsync<List<Issue>>();
+               
+                Issues = new ObservableCollection<Issue>(issues);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

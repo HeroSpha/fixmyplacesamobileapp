@@ -86,11 +86,12 @@ namespace Admin.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading dates");
                 var dates = await ServerPath.Path
                     .AppendPathSegment("/api/calendar/getdates/" + AdminModule.TenantName )
-                    .WithOAuthBearerToken(AdminModule.AccessToken).GetJsonListAsync();
+                    .WithOAuthBearerToken(AdminModule.AccessToken)
+                    .GetJsonAsync<List<DateStamp>>();
                 if (dates != null)
                 {
-                    Dates = dates;
-                    var selectedDates = dates.Select(date => new SpecialDate(date.startDate)
+                   // Dates = dates;
+                    var selectedDates = dates.Select(date => new SpecialDate(date.StartDate)
                     {
                         BackgroundColor = Color.DarkRed,
                         Selectable = true,

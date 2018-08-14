@@ -103,23 +103,12 @@ namespace Admin.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("loading");
                 var issues = await ServerPath.Path
                     .AppendPathSegment("/api/issues/getallissues/" + AdminModule.TenantName)
-                .WithOAuthBearerToken(AdminModule.AccessToken).GetJsonListAsync();
+                .WithOAuthBearerToken(AdminModule.AccessToken)
+                .GetJsonAsync<List<Issue>>();
                 if (issues != null)
                 {
-                    var items = issues.Select(_issue => new Issue
-                    {
-                        IssueId = _issue.issueId,
-                        Title = _issue.title,
-                        Address = _issue.address,
-                        Status = _issue.status,
-                        Description = _issue.description,
-                        PostedOn = _issue.postedOn,
-                        Longitude = _issue.longitude,
-                        Latitude = _issue.latitude,
-                        CategoryId = _issue.categoryId,
-                        CustomerId = _issue.customerId
-                    });
-                    Issues = new ObservableCollection<Issue>(items.OrderBy(p => p.PostedOn));
+                   
+                    Issues = new ObservableCollection<Issue>(issues.OrderBy(p => p.PostedOn));
                     MyIssues = new ObservableCollection<Issue>(Issues);
                     Acr.UserDialogs.UserDialogs.Instance.HideLoading();
                 }

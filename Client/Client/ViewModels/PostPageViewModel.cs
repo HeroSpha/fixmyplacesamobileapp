@@ -86,15 +86,9 @@ namespace Client.ViewModels
 
                 var categories = await ServerPath.Path
                     .AppendPathSegment("/api/categories/getcategories/FixmyPlace Support")
-                    .WithOAuthBearerToken(ClientModule.AccessToken).GetJsonListAsync();
-                if (categories != null)
-                {
-                    CategoryList = categories.Select(category => new Category
-                    {
-                        CategoryId = category.categoryId,
-                        CategoryName = category.categoryName
-                    }).ToList();
-                }
+                    .WithOAuthBearerToken(ClientModule.AccessToken)
+                    .GetJsonAsync<List<Category>>();
+                CategoryList = new List<Category>(categories);
 
             }
             catch (Exception ex)

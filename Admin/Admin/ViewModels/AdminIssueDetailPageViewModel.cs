@@ -331,22 +331,12 @@ namespace Admin.ViewModels
                 var quotations = await ServerPath.Path
                     .AppendPathSegment("/api/quotations/getquotation/" + IssueId + "/" + AdminModule.TenantName)
                     .WithOAuthBearerToken(AdminModule.AccessToken)
-                    .GetJsonListAsync();
-                if (quotations != null)
-                {
-                    var list = quotations.Select(quotation => new Quotation
-                    {
-                        Description = quotation.description,
-                        PriceOffered = quotation.priceOffered,
-                        TechnicianId = quotation.technicianId,
-                        Technicians = new SharedCode.Models.Technicians { Name = quotation.technician.name }
-                    }).ToList();
-                    Quotations = new ObservableCollection<Quotation>(list);
-                    _quotations = Quotations;
-                }
+                    .GetJsonAsync<List<Quotation>>();
+                Quotations = new ObservableCollection<Quotation>(quotations);
+                _quotations = Quotations;
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 await Acr.UserDialogs.UserDialogs.Instance.AlertAsync("");
                 throw;

@@ -116,25 +116,17 @@ namespace Client.ViewModels
 
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading($"Signing to {Provider.TenantName}");
                 var customer = await ServerPath.Path
-                    .AppendPathSegment("/api/customers/getcustomer/" + ClientModule.UserId + "/" + ClientModule.Tenant).WithOAuthBearerToken(ClientModule.AccessToken).GetJsonAsync();
+                    .AppendPathSegment("/api/customers/getcustomer/" + ClientModule.UserId + "/" + ClientModule.Tenant)
+                    .WithOAuthBearerToken(ClientModule.AccessToken)
+                    .GetJsonAsync<Customer>();
                 if (customer != null)
                 {
-                    var profile = new Customer
-                    {
-                        CustomerId = customer.customerId,
-                        Firstname = customer.firstName,
-                        Lastname = customer.lastName,
-                        Email = customer.email,
-                        Phone = customer.phone,
-                        RegistrationId = customer.registrationId,
-                        Unit = customer.unit,
-                        IdNumber = customer.idNumber
-                    };
-                    Customer = profile;
+                   
+                    Customer = customer;
                     
                     ClientModule.Customer = Customer;
 
-                    Username = $"Welcome, {profile.Firstname}";
+                    Username = $"Welcome, {Customer.Firstname}";
                     Acr.UserDialogs.UserDialogs.Instance.HideLoading();
 
                     await UpdateRegistration();

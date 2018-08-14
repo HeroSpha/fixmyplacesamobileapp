@@ -83,16 +83,9 @@ namespace Admin.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading");
                 var techs = await ServerPath.Path
                     .AppendPathSegment("/api/technicians/gettechnicians/" + AdminModule.TenantName)
-                    .WithOAuthBearerToken(AdminModule.AccessToken).GetJsonListAsync();
-                if (techs != null)
-                {
-                    var loggedIssues = techs.Select(tech => new Technicians
-                    {
-                        Name = tech.name,
-                        Description = tech.description
-                    });
-                    Technicians = new ObservableCollection<Technicians>(loggedIssues);
-                }
+                    .WithOAuthBearerToken(AdminModule.AccessToken)
+                    .GetJsonAsync<List<Technicians>>();
+                Technicians = new ObservableCollection<Technicians>(techs);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

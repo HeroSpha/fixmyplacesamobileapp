@@ -11,6 +11,7 @@ using Microsoft.AspNet.SignalR.Client.Hubs;
 using Prism.Modularity;
 using Flurl;
 using Microsoft.AppCenter.Analytics;
+using System.Linq;
 
 namespace Fixmyplacemobileapp.ViewModels
 {
@@ -103,19 +104,19 @@ namespace Fixmyplacemobileapp.ViewModels
                     Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Getting user...");
                     var user = await ServerPath.Path
                         .AppendPathSegment("/account/username")
-                        .WithOAuthBearerToken(App.Access_Token).GetJsonAsync();
+                        .WithOAuthBearerToken(App.Access_Token).GetJsonAsync<JObject>();
 
                     if (user != null)
                     {
-                        App.UserId = user.id;
-                        Settings.UserId = user.id;
+                        App.UserId = user["id"].ToString();
+                        Settings.UserId = user["id"].ToString();
                         Settings.AccessToken = App.Access_Token;
                         Settings.Username = Username;
                         Settings.Password = Password;
-                        var roles = user.roles[0];
+                        var roles = user["roles"].FirstOrDefault();
                         if (roles != null)
                         {
-                            string id = roles.roleId;
+                            string id = roles["roleId"].ToString();
                             Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Getting user role");
                             //var update = await App.FlurlClient.WithUrl(ServerPath.Path + "/api/tenant/updateid").WithOAuthBearerToken(App.Access_Token).GetStringAsync();
                             var _role = await ServerPath.Path
@@ -172,7 +173,6 @@ namespace Fixmyplacemobileapp.ViewModels
                                     }
                                     catch (Exception ex)
                                     {
-
                                         throw;
                                     }
 

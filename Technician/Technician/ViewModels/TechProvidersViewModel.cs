@@ -86,22 +86,12 @@ namespace TechTechnician.ViewModels
             {
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading Technician providers");
                 var providers = await ServerPath.Path
-                    .AppendPathSegment("/api/providers/gettechproviders/" + TechnicianModule.UserId ).WithOAuthBearerToken(TechnicianModule.AccessToken).GetJsonListAsync();
-                if (providers.Count > 0)
-                {
-                    var list = providers.Select(provider => new Property
-                    {
-                        TenantName = provider.tenantName,
-                        LookupId = provider.lookupId,
-                        Address = provider.address,
-                        Description = provider.description,
-                        Parent = new Shared.Models.Parent { Logo = provider.parent.logo }
-                       
-                    }).ToList();
-                    Providers = new ObservableCollection<Property>(list);
-                    _placeHolders = new ObservableCollection<Property>(Providers);
-                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
-                }
+                    .AppendPathSegment("/api/providers/gettechproviders/" + TechnicianModule.UserId )
+                    .WithOAuthBearerToken(TechnicianModule.AccessToken)
+                    .GetJsonAsync<List<Property>>();
+                Providers = new ObservableCollection<Property>(providers);
+                _placeHolders = new ObservableCollection<Property>(Providers);
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

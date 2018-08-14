@@ -83,19 +83,12 @@ namespace TechTechnician.ViewModels
             {
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading...");
                 var jobs = await ServerPath.Path
-                    .AppendPathSegment("/api/jobcards/gettechnicianjobcard/" + TechnicianModule.TenantName + "/" + TechnicianModule.UserId).WithOAuthBearerToken(TechnicianModule.AccessToken).GetJsonListAsync();
-                if (jobs != null)
-                {
-                    var jobcards = jobs.Select(job => new JobCard
-                    {
-                        JobCardId = job.jobCardId,
-                        Name = job.name,
-                        Description = job.description,
-                        Date = job.date
-                    }).ToList();
-                    JobList = new ObservableCollection<JobCard>(jobcards);
-                    _jobs = new ObservableCollection<JobCard>(JobList);
-                }
+                    .AppendPathSegment("/api/jobcards/gettechnicianjobcard/" + TechnicianModule.TenantName + "/" + TechnicianModule.UserId)
+                    .WithOAuthBearerToken(TechnicianModule.AccessToken)
+                    .GetJsonAsync<List<JobCard>>();
+               
+                JobList = new ObservableCollection<JobCard>(jobs);
+                _jobs = new ObservableCollection<JobCard>(JobList);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

@@ -109,21 +109,15 @@ namespace TechTechnician.ViewModels
             {
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading($"Signing to {TechnicianModule.TenantName}");
                 var technician = await ServerPath.Path
-                    .AppendPathSegment("/api/technicians/gettechnician/" + TechnicianModule.TenantName + "/" + TechnicianModule.UserId).WithOAuthBearerToken(TechnicianModule.AccessToken).GetJsonAsync();
+                    .AppendPathSegment("/api/technicians/gettechnician/" + TechnicianModule.TenantName + "/" + TechnicianModule.UserId)
+                    .WithOAuthBearerToken(TechnicianModule.AccessToken)
+                    .GetJsonAsync<Technicians>();
                 if (technician != null)
                 {
-                    var profile = new Technicians
-                    {
-                        Name = technician.name,
-                        Description = technician.description,
-                        Phone = technician.phone,
-                        Email = technician.email,
-                        TechnicianId = technician.technicianId,
-                        RegistrationId = technician.registrationId
-                    };
-                    Technician = profile;
+                   
+                    Technician = technician;
                     TechnicianModule.Technician = Technician;
-                    Username = $"Welcome, {profile.Name}";
+                    Username = $"Welcome, {Technician.Name}";
                     await UpdateRegistrationId();
                 }
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();

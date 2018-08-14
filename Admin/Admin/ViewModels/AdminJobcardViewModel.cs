@@ -90,19 +90,9 @@ namespace Admin.ViewModels
                 var jobs = await ServerPath.Path
                     .AppendPathSegment("/api/jobcards/getjobcards/" + AdminModule.TenantName)
                     .WithOAuthBearerToken(AdminModule.AccessToken)
-                    .GetJsonListAsync();
-                if (jobs != null)
-                {
-                    var jobcards = jobs.Select(job => new JobCard
-                    {
-                        JobCardId = job.jobCardId,
-                        Name = job.name,
-                        Description = job.description,
-                        Date = job.date
-                    }).ToList();
-                    JobList = new ObservableCollection<JobCard>(jobcards);
-                    _jobs = new ObservableCollection<JobCard>(JobList);
-                }
+                    .GetJsonAsync<List<JobCard>>();
+                JobList = new ObservableCollection<JobCard>(jobs);
+                _jobs = new ObservableCollection<JobCard>(JobList);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

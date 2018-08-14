@@ -53,19 +53,9 @@ namespace Technician.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Quotations");
                 var issues = await ServerPath.Path
                     .AppendPathSegment("/api/issues/getquotationissues/" + TechnicianModule.TenantName)
-                    .GetJsonListAsync();
-                if(issues != null)
-                {
-                    var list = issues.Select(issue => new Issue
-                    {
-                        IssueId = issue.issueId,
-                        Title = issue.title,
-                        Description = issue.description,
-                        Category = new Category { CategoryName = issue.category.categoryName }
-
-                    });
-                    Issues = new ObservableCollection<Issue>(list);
-                }
+                    .GetJsonAsync<List<Issue>>();
+               
+                Issues = new ObservableCollection<Issue>(issues);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception)

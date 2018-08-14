@@ -71,19 +71,11 @@ namespace Client.ViewModels
             Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading...");
             var providers = await ServerPath.Path
                 .AppendPathSegment("/account/gettenants")
-                .WithOAuthBearerToken(ClientModule.AccessToken).GetJsonListAsync();
+                .WithOAuthBearerToken(ClientModule.AccessToken).GetJsonAsync<List<Property>>();
             if (providers != null)
             {
-                var list = providers.Select(provider => new Property
-                {
-                    TenantName = provider.tenantName,
-                   
-                    Address = provider.address,
-                    Description = provider.description,
-                  
-                    LookupId = provider.lookupId
-                }).ToList();
-                Providers = new ObservableCollection<Property>(list);
+               
+                Providers = new ObservableCollection<Property>(providers);
                 _placeHolders = new ObservableCollection<Property>(Providers);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
 

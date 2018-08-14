@@ -192,31 +192,11 @@ namespace TechTechnician.ViewModels
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading...");
                 var issues = await ServerPath.Path
                     .AppendPathSegment("/api/jobitems/alljobitems/" + TechnicianModule.TenantName + "/" + Job.JobCardId)
-                    .WithOAuthBearerToken(TechnicianModule.AccessToken).GetJsonListAsync();
-                if (issues != null)
-                {
-                    var jobcards = issues.Select(issue => new Issue
-                    {
-                        IssueId = issue.issueId,
-                        Title = issue.title,
-                        Description = issue.description,
-                        IsResolved = issue.isResolved,
-                        Address = issue.address,
-                        CustomerId = issue.customerId,
-                        CategoryId = issue.categoryId,
-                        JobPerformed = issue.jobPerformed,
-                        Status = issue.status,
-                        Longitude = issue.longitude,
-                        Latitude = issue.latitude,
-                        PostedOn = issue.postedOn,
-                        DateResolved = issue.dateResolved,
-                        Customer = new Customer { CustomerId = issue.customer.customerId, Email = issue.customer.email, Firstname = issue.customer.firstname, Lastname = issue.customer.lastname, Phone = issue.customer.phone },
-                        Category = new Category { CategoryId = issue.category.categoryId, CategoryName = issue.category.categoryName }
-                    });
-                    JobItems = new ObservableCollection<Issue>(jobcards);
-                    jobItems = new ObservableCollection<Issue>(JobItems);
-                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
-                }
+                    .WithOAuthBearerToken(TechnicianModule.AccessToken)
+                    .GetJsonAsync<List<Issue>>();
+                JobItems = new ObservableCollection<Issue>(issues);
+                jobItems = new ObservableCollection<Issue>(JobItems);
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
 
             }
             catch (Exception ex)

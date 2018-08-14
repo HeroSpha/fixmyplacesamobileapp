@@ -116,20 +116,10 @@ namespace TechTechnician.ViewModels
                
                 var providers = await ServerPath.Path
                     .AppendPathSegment("/api/itemcost/getjobitemcost/" + TechnicianModule.TenantName + "/" + Issue.IssueId)
-                    .WithOAuthBearerToken(TechnicianModule.AccessToken).GetJsonListAsync();
-                if (providers != null)
-                {
-                    var list = providers.Select(jobitemcost => new JobItemCost
-                    {
-                        Cost = jobitemcost.cost,
-                        Description = jobitemcost.description,
-                        CostId = jobitemcost.costId,
-                        JobItemId = jobitemcost.jobItemId
-                    }).ToList();
-                    JobItemCosts = new ObservableCollection<JobItemCost>(list);
-                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
-
-                }
+                    .WithOAuthBearerToken(TechnicianModule.AccessToken)
+                    .GetJsonAsync<List<JobItemCost>>();
+                JobItemCosts = new ObservableCollection<JobItemCost>(providers);
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)
             {

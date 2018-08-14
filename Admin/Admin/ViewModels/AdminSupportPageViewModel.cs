@@ -54,18 +54,13 @@ namespace Admin.ViewModels
 
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("User information");
                 var customer = await ServerPath.Path
-                    .AppendPathSegment("/api/customers/getcustomer/" + AdminModule.UserId + "/FixmyPlace Support" ).WithOAuthBearerToken(AdminModule.AccessToken).GetJsonAsync();
+                    .AppendPathSegment("/api/customers/getcustomer/" + AdminModule.UserId + "/FixmyPlace Support" )
+                    .WithOAuthBearerToken(AdminModule.AccessToken)
+                    .GetJsonAsync<Customer>();
                 if (customer != null)
                 {
-                    var profile = new Customer
-                    {
-                        CustomerId = customer.customerId,
-                        Firstname = customer.firstName,
-                        Lastname = customer.lastName,
-                        Email = customer.email,
-                        Phone = customer.phone
-                    };
-                    Customer = profile;
+                   
+                    Customer = customer;
 
                    
                 }
@@ -93,27 +88,10 @@ namespace Admin.ViewModels
                 var issues = await ServerPath.Path
                     .AppendPathSegment("/api/issues/getcustomerissues/FixmyPlace Support"  + "/" + AdminModule.UserId)
                     .WithOAuthBearerToken(AdminModule.AccessToken)
-                    .GetJsonListAsync();
+                    .GetJsonAsync<List<Issue>>();
 
-                 if(issues != null)
-                {
-                    Issues = issues.Select(issue => new Issue
-                    {
-                        IssueId = issue.issueId,
-                        Title = issue.title,
-                        Description = issue.description,
-                        Address = issue.address,
-                        Status = issue.status,
-                        CategoryId = issue.categoryId,
-                        DateResolved = issue.dateResolved,
-                        ImageUrl1 = issue.imageUrl1,
-                        ImageUrl2 = issue.imageUrl2,
-                        ImageUrl3 = issue.imageUrl3,
-                        IsResolved = issue.isResolved,
-                        JobPerformed = issue.jobPerformed,
-                        PostedOn = issue.postedOn
-                    }).ToList();
-                }
+                
+                Issues = new List<Issue>(issues);
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

@@ -90,25 +90,10 @@ namespace Admin.ViewModels
                 var visitors = await ServerPath.Path
                     .AppendPathSegment("/api/visitors/getvisitors/" + AdminModule.TenantName)
                     .WithOAuthBearerToken(AdminModule.AccessToken)
-                    .GetJsonListAsync();
-                if(visitors != null)
-                {
-                    var list = visitors.Select(visitor => new Visitor
-                    {
-                        Id = visitor.id,
-                        Firstname = visitor.firstname,
-                        Lastname = visitor.lastname,
-                        IdNumber = visitor.idNumber,
-                        DateIn = visitor.dateIn,
-                        DateOut = visitor.dateOut,
-                        PhoneNumber = visitor.phoneNumber,
-                        CustomerId = visitor.customerId,
-                        Customer = new Customer { Firstname = visitor.customer.firstname, Lastname = visitor.customer.lastname }
-                    });
-                    Visitors = new ObservableCollection<Visitor>(list);
-                    _visitors = new ObservableCollection<Visitor>(Visitors);
-                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
-                }
+                    .GetJsonAsync<List<Visitor>>();
+                Visitors = new ObservableCollection<Visitor>(visitors);
+                _visitors = new ObservableCollection<Visitor>(Visitors);
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)
             {
