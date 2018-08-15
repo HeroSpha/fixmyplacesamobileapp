@@ -26,7 +26,7 @@
                     <Entry HorizontalOptions="FillAndExpand" Placeholder="Lookup Key" Text="{Binding LookupKey, Mode=TwoWay}"  />
                     <icon:IconButton BackgroundColor="{StaticResource Primary}" WidthRequest="40" TextColor="White" Text="ion-search" VerticalOptions="Center" HorizontalOptions="End" Command="{Binding SearchCommand}" />
                 </StackLayout>
-                <Button Text="Scan QRCODE" Command="{Binding QRCodeCommand}" TextColor="White" BackgroundColor="{StaticResource Primary}" />
+                <!--<Button Text="Scan QRCODE" Command="{Binding QRCodeCommand}" TextColor="White" BackgroundColor="{StaticResource Primary}" />-->
             </StackLayout>
             <ScrollView Grid.Row="1" IsVisible="{Binding Visible}">
                 <StackLayout >

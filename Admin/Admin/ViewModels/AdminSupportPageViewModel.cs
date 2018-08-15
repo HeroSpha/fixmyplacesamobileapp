@@ -96,8 +96,7 @@ namespace Admin.ViewModels
             }
             catch (Exception ex)
             {
-
-              await  Acr.UserDialogs.UserDialogs.Instance.AlertAsync("No Issue found");
+                await  Acr.UserDialogs.UserDialogs.Instance.AlertAsync("No Issue found");
             }
         }
     }
