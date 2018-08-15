@@ -16,13 +16,13 @@
 	<key>NSCalendarsUsageDescription</key>
 	<string>Needs Calendar Permission</string>
 	<key>NSCameraUsageDescription</key>
-	<string>This app needs access to the camera to take photos.</string>
+	<string>This app needs access to the camera to take photos for your issue submission. Your photos wont be shared without your permission.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app needs access to photos.</string>
+	<string>App would like to access your photo gallery for your issue submission. Your photos wont be shared without your permission.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app needs access to microphone.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>This app needs access to the photo gallery.</string>
+	<string>App would like to access your photo gallery for your issue submission. Your photos wont be shared without your permission.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>iconize-material.ttf</string>
