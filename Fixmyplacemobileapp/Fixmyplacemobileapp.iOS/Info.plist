@@ -13,16 +13,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-		<key>NSCalendarsUsageDescription</key>
-  <string>Needs Calendar Permission</string>
-  <key>NSCameraUsageDescription</key>
-  <string>Enable FixmyPlace to access your camera to take photos, upload photos for maintenance review, and save ones you've taken with the app.</string>
-  <key>NSPhotoLibraryUsageDescription</key>
-  <string>Enable FixmyPlace to access your camera roll to upload photos for maintenance review.</string>
-  <key>NSMicrophoneUsageDescription</key>
-  <string>This app needs access to microphone.</string>
-  <key>NSPhotoLibraryAddUsageDescription</key>
-  <string>Enable FixmyPlace to access your camera roll to upload photos for maintenace review, and save ones you've taken with the app.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Needs Calendar Permission</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Enable FixmyPlace to access your camera to take photos, upload photos for maintenance review, and save ones you&apos;ve taken with the app.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Enable FixmyPlace to access your camera roll to upload photos for maintenance review.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs access to microphone.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Enable FixmyPlace to access your camera roll to upload photos for maintenace review, and save ones you&apos;ve taken with the app.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>iconize-material.ttf</string>
@@ -83,6 +83,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Media.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 </dict>
 </plist>
