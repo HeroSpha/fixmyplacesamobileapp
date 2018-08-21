@@ -75,11 +75,11 @@ namespace Admin.ViewModels
             {
                 Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading");
                 var tenants = await ServerPath.Path
-                    .AppendPathSegment("/api/customers/getallcustomers/" + AdminModule.TenantName)
-                    .WithOAuthBearerToken(AdminModule.AccessToken)
-                    .GetJsonAsync<List<Customer>>();
+                     .AppendPathSegment("/api/customers/getallcustomers/" + AdminModule.TenantName)
+                     .WithOAuthBearerToken(AdminModule.AccessToken)
+                     .GetJsonAsync<List<Customer>>();
                 Acr.UserDialogs.UserDialogs.Instance.HideLoading();
-                Tenants = new ObservableCollection<Customer>(Tenants);
+                Tenants = new ObservableCollection<Customer>(tenants);
                 _tenants = new ObservableCollection<Customer>(Tenants);
                 Tenant = null;
             }

@@ -65,7 +65,7 @@ namespace Client.ViewModels
             if (result)
             {
                 
-                await _navigationService.NavigateAsync("MainPage");
+                await _navigationService.NavigateAsync("myapp:///MainPage");
             }
 
         }

@@ -63,7 +63,7 @@ namespace TechTechnician.ViewModels
             var result = await Acr.UserDialogs.UserDialogs.Instance.ConfirmAsync("Sign out from FixmyPlace Dashboard?", "", "Sign Out", "Cancel");
             if(result)
             {
-                await _navigationService.NavigateAsync("MainPage");
+                await _navigationService.NavigateAsync("myapp:///MainPage");
             }
           
         }

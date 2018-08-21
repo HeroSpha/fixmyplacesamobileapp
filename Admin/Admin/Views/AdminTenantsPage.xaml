@@ -15,7 +15,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Margin="2">
-                                <controls:CircleImage Source="person.png" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="50" BorderColor="{StaticResource Primary}" BorderThickness="2">
+                                <controls:CircleImage Source="person.png" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="50" BorderColor="{StaticResource Primary}" BorderThickness="2">
                                     <controls:CircleImage.WidthRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="Android, iOS">55</On>
@@ -29,14 +29,14 @@
                                         </OnPlatform>
                                     </controls:CircleImage.HeightRequest>
                                 </controls:CircleImage>
-                                <StackLayout Margin="5" VerticalOptions="Center">
+                                <StackLayout Margin="5" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="{Binding Firstname}"  FontFamily="{StaticResource LightFont}"/>
                                         <Label Text="{Binding Lastname}" FontFamily="{StaticResource LightFont}"/>
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Unit, StringFormat='Unit : {0}'}" HorizontalOptions="Start" FontFamily="{StaticResource NormalFont}" FontSize="Micro" TextColor="{StaticResource Primary}" />
-                                        <Label Text="{Binding Phone}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" TextColor="{StaticResource Primary}" HorizontalOptions="EndAndExpand" />
+                                        <Label Text="{Binding Unit, StringFormat='Unit : {0}'}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" TextColor="{StaticResource Primary}" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding Phone}" FontFamily="{StaticResource NormalFont}" FontSize="Micro" TextColor="{StaticResource Primary}" HorizontalOptions="End" />
                                     </StackLayout>
                                 </StackLayout>
 

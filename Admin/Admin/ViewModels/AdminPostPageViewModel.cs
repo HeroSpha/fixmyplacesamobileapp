@@ -20,7 +20,7 @@ namespace Admin.ViewModels
             get { return customer; }
             set { SetProperty(ref customer, value); }
         }
-        private IFlurlClient FlurlClient;
+      
         private string _address = "";
         private List<Category> _categoryList;
         public List<Category> CategoryList
@@ -78,7 +78,7 @@ namespace Admin.ViewModels
         public DelegateCommand SaveCommand { get; set; }
         public AdminPostPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
         {
-            FlurlClient = new FlurlClient(ServerPath.Path);
+          
             _navigationService = navigationService;
             SaveCommand = new DelegateCommand(Save).ObservesCanExecute(() => CanSave);
             _eventAggregator = eventAggregator;

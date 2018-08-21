@@ -23,33 +23,31 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                
-                                <StackLayout Orientation="Horizontal" Margin="2">
-                                    <controls:CircleImage Source="person.png" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="50" BorderColor="{StaticResource Primary}" BorderThickness="2">
-                                        <controls:CircleImage.WidthRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="Android, iOS">55</On>
-                                                <On Platform="WinPhone, UWP">75</On>
-                                            </OnPlatform>
-                                        </controls:CircleImage.WidthRequest>
-                                        <controls:CircleImage.HeightRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="Android, iOS">55</On>
-                                                <On Platform="WinPhone, UWP">75</On>
-                                            </OnPlatform>
-                                        </controls:CircleImage.HeightRequest>
-                                    </controls:CircleImage>
-                                    <StackLayout Margin="5">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding Firstname}" FontFamily="{StaticResource LightFont}" FontSize="Small" />
-                                            <Label Text="{Binding Lastname}" FontFamily="{StaticResource LightFont}" FontSize="Small"/>
+                            <StackLayout Orientation="Horizontal" Margin="2">
+                                <controls:CircleImage Source="person.png" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="50" BorderColor="{StaticResource Primary}" BorderThickness="2" HorizontalOptions="Start">
+                                    <controls:CircleImage.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="Android, iOS">55</On>
+                                            <On Platform="WinPhone, UWP">75</On>
+                                        </OnPlatform>
+                                    </controls:CircleImage.WidthRequest>
+                                    <controls:CircleImage.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="Android, iOS">55</On>
+                                            <On Platform="WinPhone, UWP">75</On>
+                                        </OnPlatform>
+                                    </controls:CircleImage.HeightRequest>
+                                </controls:CircleImage>
+                                <StackLayout Margin="5" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Firstname}" HorizontalOptions="Start" FontFamily="{StaticResource LightFont}" FontSize="Small" />
+                                        <Label Text="{Binding Lastname}" HorizontalOptions="FillAndExpand" FontFamily="{StaticResource LightFont}" FontSize="Small"/>
+                                        <Label Text="{Binding Customer.Unit, StringFormat='Unit {0}'}" HorizontalOptions="End" FontFamily="{StaticResource LightFont}" FontSize="Small"/>
 
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding DateIn, StringFormat='Date in : {0}'}" FontFamily="{StaticResource NormalFont}" HorizontalOptions="Start" TextColor="ForestGreen" FontSize="10" />
-                                            <Label Text="{Binding DateOut, StringFormat='DateOut : {0}'}" FontFamily="{StaticResource NormalFont}" HorizontalOptions="End" TextColor="Red" FontSize="10"/>
-                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding DateIn, StringFormat='Date in : {0}'}" FontFamily="{StaticResource NormalFont}" HorizontalOptions="Start" TextColor="ForestGreen" FontSize="10" />
+                                        <Label Text="{Binding DateOut, StringFormat='DateOut : {0}'}" FontFamily="{StaticResource NormalFont}" HorizontalOptions="End" TextColor="Red" FontSize="10"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>

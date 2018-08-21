@@ -66,7 +66,7 @@ namespace Fixmyplacemobileapp.ViewModels
                 {
                     Acr.UserDialogs.UserDialogs.Instance.HideLoading();
                     await Acr.UserDialogs.UserDialogs.Instance.AlertAsync("Email reset successful.");
-                    await _navigationService.NavigateAsync("MainPage");
+                    await _navigationService.NavigateAsync("myapp:///MainPage");
                 }
                 else if(result.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
