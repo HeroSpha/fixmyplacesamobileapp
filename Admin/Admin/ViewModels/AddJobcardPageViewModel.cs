@@ -144,7 +144,7 @@ namespace Admin.ViewModels
         }
 
         public DelegateCommand CreatejobCommand { get; set; }
-        public void OnNavigatingTo(NavigationParameters parameters)
+        public void OnNavigatingTo(INavigationParameters parameters)
         {
             if(parameters.GetNavigationMode() == NavigationMode.New)
             {

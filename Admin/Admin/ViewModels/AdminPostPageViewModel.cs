@@ -12,7 +12,7 @@ using Flurl;
 
 namespace Admin.ViewModels
 {
-    public class AdminPostPageViewModel : BindableBase, INavigationAware
+    public class AdminPostPageViewModel : BindableBase, INavigatingAware
     {
         private Customer customer;
         public Customer Customer
@@ -152,17 +152,9 @@ namespace Admin.ViewModels
             }
         }
 
-        public void OnNavigatedFrom(NavigationParameters parameters)
-        {
-            
-        }
+       
 
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-            
-        }
-
-        public void OnNavigatingTo(NavigationParameters parameters)
+        public void OnNavigatingTo(INavigationParameters parameters)
         {
             if(parameters.GetNavigationMode() == NavigationMode.New)
             {

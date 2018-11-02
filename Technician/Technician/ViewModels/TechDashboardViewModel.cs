@@ -130,7 +130,8 @@ namespace TechTechnician.ViewModels
             }
         }
 
-        public void OnNavigatingTo(NavigationParameters parameters)
+      
+        public void OnNavigatingTo(INavigationParameters parameters)
         {
             if (parameters.GetNavigationMode() == NavigationMode.New)
             {
@@ -138,7 +139,7 @@ namespace TechTechnician.ViewModels
             }
             else if (parameters.GetNavigationMode() == NavigationMode.Back)
             {
-                
+
 
             }
         }

@@ -33,7 +33,7 @@ namespace Fixmyplacemobileapp.ViewModels
 
         }
 
-        public void OnNavigatingTo(NavigationParameters parameters)
+        public void OnNavigatingTo(INavigationParameters parameters)
         {
             var issue = parameters["issue"] as Issue;
             Image1 = issue.ImageUrl1;

@@ -157,7 +157,9 @@ namespace TechTechnician.ViewModels
             para.Add("item", Issue);
             await _navigationService.NavigateAsync("TechJobItemDatesPage", para);
         }
-        public async void OnNavigatingTo(NavigationParameters parameters)
+       
+
+        public async void OnNavigatingTo(INavigationParameters parameters)
         {
             if (parameters.GetNavigationMode() == NavigationMode.New)
             {

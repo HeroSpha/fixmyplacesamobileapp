@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.props" Condition="Exists('..\..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.props')" />
   <Import Project="..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props')" />
-  <Import Project="..\..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props" Condition="Exists('..\..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props')" />
   <Import Project="..\..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -84,10 +84,13 @@
       <HintPath>..\..\packages\AndHUD.1.2.0\lib\MonoAndroid\AndHUD.dll</HintPath>
     </Reference>
     <Reference Include="Com.OneSignal, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Com.OneSignal.3.2.0\lib\MonoAndroid10\Com.OneSignal.dll</HintPath>
+      <HintPath>..\..\packages\Com.OneSignal.3.2.1\lib\MonoAndroid10\Com.OneSignal.dll</HintPath>
     </Reference>
     <Reference Include="Com.OneSignal.Abstractions, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Com.OneSignal.3.2.0\lib\MonoAndroid10\Com.OneSignal.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Com.OneSignal.3.2.1\lib\MonoAndroid10\Com.OneSignal.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.11\lib\netstandard2.0\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="ExtendedCells.Forms.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Forms.ExtendedCell.1.0.0.20\lib\MonoAndroid10\ExtendedCells.Forms.Plugin.Abstractions.dll</HintPath>
@@ -113,8 +116,8 @@
     <Reference Include="Flurl, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Flurl.2.8.0\lib\netstandard2.0\Flurl.dll</HintPath>
     </Reference>
-    <Reference Include="Flurl.Http, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Flurl.Http.2.3.2\lib\netstandard2.0\Flurl.Http.dll</HintPath>
+    <Reference Include="Flurl.Http, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Flurl.Http.2.4.0\lib\netstandard2.0\Flurl.Http.dll</HintPath>
     </Reference>
     <Reference Include="FormsPlugin.Iconize, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.FormsPlugin.Iconize.1.0.10\lib\MonoAndroid10\FormsPlugin.Iconize.dll</HintPath>
@@ -123,29 +126,29 @@
       <HintPath>..\..\packages\Xam.FormsPlugin.Iconize.1.0.10\lib\MonoAndroid10\FormsPlugin.Iconize.Droid.dll</HintPath>
     </Reference>
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.3.3.0.912540\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
     <Reference Include="ImageCircle.Forms.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.3.0.0.5\lib\monoandroid71\ImageCircle.Forms.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="Java.Interop" />
     <Reference Include="Microsoft.AppCenter, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AppCenter.1.8.0\lib\MonoAndroid403\Microsoft.AppCenter.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.1.10.0\lib\MonoAndroid403\Microsoft.AppCenter.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Analytics, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AppCenter.Analytics.1.8.0\lib\MonoAndroid403\Microsoft.AppCenter.Analytics.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.Analytics.1.10.0\lib\MonoAndroid403\Microsoft.AppCenter.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Analytics.Android.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AppCenter.Analytics.1.8.0\lib\MonoAndroid403\Microsoft.AppCenter.Analytics.Android.Bindings.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.Analytics.1.10.0\lib\MonoAndroid403\Microsoft.AppCenter.Analytics.Android.Bindings.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Android.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AppCenter.1.8.0\lib\MonoAndroid403\Microsoft.AppCenter.Android.Bindings.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.1.10.0\lib\MonoAndroid403\Microsoft.AppCenter.Android.Bindings.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Crashes, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AppCenter.Crashes.1.8.0\lib\MonoAndroid403\Microsoft.AppCenter.Crashes.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.Crashes.1.10.0\lib\MonoAndroid403\Microsoft.AppCenter.Crashes.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Crashes.Android.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AppCenter.Crashes.1.8.0\lib\MonoAndroid403\Microsoft.AppCenter.Crashes.Android.Bindings.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.Crashes.1.10.0\lib\MonoAndroid403\Microsoft.AppCenter.Crashes.Android.Bindings.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Client.2.3.0\lib\netstandard1.3\Microsoft.AspNet.SignalR.Client.dll</HintPath>
@@ -166,7 +169,7 @@
       <HintPath>..\..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\MonoAndroid10\NGraphics.Custom.dll</HintPath>
     </Reference>
     <Reference Include="OneSignal.Android.Binding, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Com.OneSignal.3.2.0\lib\MonoAndroid10\OneSignal.Android.Binding.dll</HintPath>
+      <HintPath>..\..\packages\Com.OneSignal.3.2.1\lib\MonoAndroid10\OneSignal.Android.Binding.dll</HintPath>
     </Reference>
     <Reference Include="PCLCrypto, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d4421c8a4786956c, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PCLCrypto.2.0.147\lib\MonoAndroid23\PCLCrypto.dll</HintPath>
@@ -195,20 +198,17 @@
     <Reference Include="Plugin.Geolocator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugin.Geolocator.4.5.0.6\lib\monoandroid71\Plugin.Geolocator.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Iconize, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Iconize.1.0.10\lib\MonoAndroid10\Plugin.Iconize.dll</HintPath>
+    <Reference Include="Plugin.Iconize, Version=3.3.0.85, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Iconize.3.3.0.85\lib\monoandroid81\Plugin.Iconize.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Iconize.Droid, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Iconize.1.0.10\lib\MonoAndroid10\Plugin.Iconize.Droid.dll</HintPath>
+    <Reference Include="Plugin.Iconize.FontAwesome, Version=3.3.0.85, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Iconize.FontAwesome.3.3.0.85\lib\monoandroid81\Plugin.Iconize.FontAwesome.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Iconize.FontAwesome.Droid, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Iconize.FontAwesome.1.0.10\lib\MonoAndroid10\Plugin.Iconize.FontAwesome.Droid.dll</HintPath>
+    <Reference Include="Plugin.Iconize.Ionicons, Version=3.3.0.85, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Iconize.Ionicons.3.3.0.85\lib\monoandroid81\Plugin.Iconize.Ionicons.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Iconize.Ionicons.Droid, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Iconize.Ionicons.1.0.10\lib\MonoAndroid10\Plugin.Iconize.Ionicons.Droid.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Iconize.Material.Droid, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Iconize.Material.1.0.10\lib\MonoAndroid10\Plugin.Iconize.Material.Droid.dll</HintPath>
+    <Reference Include="Plugin.Iconize.Material, Version=3.3.0.85, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Iconize.Material.3.3.0.85\lib\monoandroid81\Plugin.Iconize.Material.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Media, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugin.Media.4.0.1.5\lib\monoandroid71\Plugin.Media.dll</HintPath>
@@ -222,17 +222,17 @@
     <Reference Include="Plugin.Settings.Abstractions, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Settings.3.1.1\lib\MonoAndroid10\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Prism, Version=7.0.0.396, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Core.7.0.0.396\lib\netstandard2.0\Prism.dll</HintPath>
+    <Reference Include="Prism, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Core.7.1.0.431\lib\netstandard2.0\Prism.dll</HintPath>
     </Reference>
-    <Reference Include="Prism.Forms, Version=7.0.0.396, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Forms.7.0.0.396\lib\netstandard2.0\Prism.Forms.dll</HintPath>
+    <Reference Include="Prism.Forms, Version=7.1.0.431, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Forms.7.1.0.431\lib\netstandard2.0\Prism.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="Prism.Unity.Forms, Version=7.0.0.396, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Unity.Forms.7.0.0.396\lib\netstandard2.0\Prism.Unity.Forms.dll</HintPath>
+    <Reference Include="Prism.Unity.Forms, Version=7.1.0.431, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Unity.Forms.7.1.0.431\lib\monoandroid71\Prism.Unity.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="Splat, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Splat.4.0.2\lib\monoandroid80\Splat.dll</HintPath>
+    <Reference Include="Splat, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Splat.5.0.2\lib\monoandroid80\Splat.dll</HintPath>
     </Reference>
     <Reference Include="SVG.Forms.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\MonoAndroid10\SVG.Forms.Plugin.Abstractions.dll</HintPath>
@@ -242,23 +242,47 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Configuration.ConfigurationManager.4.5.0\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.AccessControl.4.5.0\lib\netstandard2.0\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Permissions.4.5.0\lib\netstandard2.0\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Principal.Windows.4.5.0\lib\netstandard2.0\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\netstandard2.0\Unity.Abstractions.dll</HintPath>
+    <Reference Include="Unity.Abstractions, Version=3.3.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.Abstractions.3.3.1\lib\netstandard2.0\Unity.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Container, Version=5.8.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\netstandard2.0\Unity.Container.dll</HintPath>
+    <Reference Include="Unity.Configuration, Version=5.2.5.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.11\lib\netstandard2.0\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.8.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.Container.5.8.11\lib\netstandard2.0\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.5.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.11\lib\netstandard2.0\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.11\lib\netstandard2.0\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.9.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.5.8.11\lib\netstandard2.0\Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Unity.5.8.6\lib\netstandard2.0\Unity.ServiceLocation.dll</HintPath>
+      <HintPath>..\..\packages\Unity.5.8.11\lib\netstandard2.0\Unity.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Validation, Version=2.4.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Validation.2.4.18\lib\netstandard1.3\Validation.dll</HintPath>
@@ -327,16 +351,19 @@
       <HintPath>..\..\packages\Xamarin.Android.Support.Vector.Drawable.27.0.2.1\lib\MonoAndroid81\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.3.3.0.912540\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.3.3.0.912540\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.3.3.0.912540\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.3.3.0.912540\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\lib\MonoAndroid80\Xamarin.GooglePlayServices.Base.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\lib\MonoAndroid80\Xamarin.GooglePlayServices.Basement.dll</HintPath>
@@ -466,6 +493,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_background.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -496,10 +526,11 @@
     <Error Condition="!Exists('..\..\packages\Xamarin.Android.Support.v7.AppCompat.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v7.AppCompat.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Android.Support.v7.AppCompat.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v7.AppCompat.targets'))" />
     <Error Condition="!Exists('..\..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Basement.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Basement.targets'))" />
     <Error Condition="!Exists('..\..\packages\Xamarin.GooglePlayServices.Tasks.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Tasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.GooglePlayServices.Tasks.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Tasks.targets'))" />
-    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props'))" />
-    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.targets'))" />
     <Error Condition="!Exists('..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props'))" />
     <Error Condition="!Exists('..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Base.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Base.targets'))" />
   </Target>
   <Import Project="..\..\packages\Xamarin.GooglePlayServices.Gcm.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Gcm.targets" Condition="Exists('..\..\packages\Xamarin.GooglePlayServices.Gcm.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Gcm.targets')" />
   <Import Project="..\..\packages\Xamarin.GooglePlayServices.Iid.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Iid.targets" Condition="Exists('..\..\packages\Xamarin.GooglePlayServices.Iid.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Iid.targets')" />
@@ -526,8 +557,9 @@
   <Import Project="..\..\packages\Xamarin.Android.Support.v7.AppCompat.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v7.AppCompat.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.AppCompat.27.0.2.1\build\MonoAndroid81\Xamarin.Android.Support.v7.AppCompat.targets')" />
   <Import Project="..\..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Basement.targets')" />
   <Import Project="..\..\packages\Xamarin.GooglePlayServices.Tasks.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Tasks.targets" Condition="Exists('..\..\packages\Xamarin.GooglePlayServices.Tasks.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Tasks.targets')" />
-  <Import Project="..\..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.targets')" />
   <Import Project="..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.targets')" />
+  <Import Project="..\..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Base.targets" Condition="Exists('..\..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Base.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

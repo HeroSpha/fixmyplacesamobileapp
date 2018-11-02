@@ -54,14 +54,7 @@ namespace Technician.ViewModels
             PostCommand = new DelegateCommand(PostQuotation);
         }
 
-        public async void OnNavigatingTo(NavigationParameters parameters)
-        {
-            if(parameters.GetNavigationMode() == NavigationMode.New)
-            {
-                Issue = parameters["issue"] as Issue;
-                await GetQuotation();
-            }
-        }
+        
         private async Task GetQuotation()
         {
             try
@@ -126,5 +119,14 @@ namespace Technician.ViewModels
             }
           
         }
-	}
+
+        public async void OnNavigatingTo(INavigationParameters parameters)
+        {
+            if (parameters.GetNavigationMode() == NavigationMode.New)
+            {
+                Issue = parameters["issue"] as Issue;
+                await GetQuotation();
+            }
+        }
+    }
 }

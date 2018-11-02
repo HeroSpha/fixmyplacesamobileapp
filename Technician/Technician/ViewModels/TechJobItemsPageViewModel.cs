@@ -222,13 +222,18 @@ namespace TechTechnician.ViewModels
         }
         public async void OnNavigatingTo(NavigationParameters parameters)
         {
+            
+        }
+
+        public async void OnNavigatingTo(INavigationParameters parameters)
+        {
             if (parameters.GetNavigationMode() == NavigationMode.New)
             {
                 if (parameters.ContainsKey("job"))
                 {
                     Job = ((JobCard)parameters["job"]);
                     Title = Job.Name;
-                     await GetJobcardItems();
+                    await GetJobcardItems();
                 }
             }
         }

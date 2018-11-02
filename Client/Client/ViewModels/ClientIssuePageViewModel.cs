@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Client.ViewModels
 {
-    public class ClientIssuePageViewModel : BindableBase, INavigationAware
+    public class ClientIssuePageViewModel : BindableBase, INavigatingAware
     {
         private Issue _issue;
         public Issue Issue
@@ -186,18 +186,11 @@ namespace Client.ViewModels
             }
         }
 
-        public void OnNavigatedFrom(NavigationParameters parameters)
-        {
-
-        }
+        
         public DelegateCommand DeleteCommand { get; set; }
         public DelegateCommand MarkCompleteCommand { get; set; }
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-
-        }
-
-        public async void OnNavigatingTo(NavigationParameters parameters)
+       
+        public async void OnNavigatingTo(INavigationParameters parameters)
         {
             if (parameters.GetNavigationMode() == NavigationMode.New)
             {
@@ -215,6 +208,7 @@ namespace Client.ViewModels
                 }
             }
         }
-    
-	}
+
+        
+    }
 }

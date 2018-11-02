@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Client.ViewModels
 {
-    public class ClientMainPageViewModel : BindableBase, INavigationAware
+    public class ClientMainPageViewModel : BindableBase
     {
         private string _title;
         public string Title
@@ -21,20 +21,8 @@ namespace Client.ViewModels
 
         }
 
-        public void OnNavigatedFrom(NavigationParameters parameters)
-        {
+       
 
-        }
-
-        public void OnNavigatingTo(NavigationParameters parameters)
-        {
-
-        }
-
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-            if (parameters.ContainsKey("title"))
-                Title = (string)parameters["title"] + " and Prism";
-        }
+        
     }
 }

@@ -127,7 +127,8 @@ namespace TechTechnician.ViewModels
 
             }
         }
-        public async void OnNavigatingTo(NavigationParameters parameters)
+       
+        public async void OnNavigatingTo(INavigationParameters parameters)
         {
             if (parameters.GetNavigationMode() == NavigationMode.New)
             {

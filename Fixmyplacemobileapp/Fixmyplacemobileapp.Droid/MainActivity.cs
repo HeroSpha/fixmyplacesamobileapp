@@ -14,7 +14,7 @@ using Plugin.CurrentActivity;
 
 namespace Fixmyplacemobileapp.Droid
 {
-    [Activity(Label = "Kagiso House", Theme = "@style/MyTheme.Base", Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait,  MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, LaunchMode = LaunchMode.SingleTop)]
+    [Activity(Label = "Fixmyplace", Theme = "@style/MyTheme.Base", Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait,  MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, LaunchMode = LaunchMode.SingleTop)]
     //[Android(ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -23,7 +23,6 @@ namespace Fixmyplacemobileapp.Droid
         {
             Plugin.Iconize.Iconize
              .With(new Plugin.Iconize.Fonts.IoniconsModule())
-             .With(new Plugin.Iconize.Fonts.FontAwesomeModule())
              .With(new Plugin.Iconize.Fonts.MaterialModule());
             IconControls.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
             TabLayoutResource = Resource.Layout.tabs;

@@ -63,7 +63,7 @@ namespace Visitor.ViewModels
             }
         }
 
-        public void OnNavigatingTo(NavigationParameters parameters)
+        public void OnNavigatingTo(INavigationParameters parameters)
         {
             try
             {
